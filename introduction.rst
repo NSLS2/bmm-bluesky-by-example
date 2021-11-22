@@ -58,3 +58,11 @@ If you contribute, please follow the existing examples:
    creating a sub-folder for your content.  If, however, your content
    can reasonably be split up among various files and placed in a
    sub-folder, it is better to do that.
+
+
+Notes
+-----
+
+This documentation project uses the lovely {book}theme from
+https://sphinx-book-theme.readthedocs.io/en/latest/index.html
+and `The Executable Book Project <https://ebp.jupyterbook.org/>`__.
