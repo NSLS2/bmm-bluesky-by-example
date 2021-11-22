@@ -27,5 +27,5 @@ jobs:
         uses: NSLS-II-BMM/bluesky-by-example@main
         with:
           branch: main
-          dir_docs: .
+          dir_docs: docs
           sphinxopts: ''
