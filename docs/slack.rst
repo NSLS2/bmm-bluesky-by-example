@@ -8,10 +8,11 @@ Communicating from the beamline with Slack
    Bluesky.
 
    Lesson
-     Obtains Slack development keys and post images and text to Slack
-     using Bluesky. This incorporates readily into Bluesky measurement
-     plans.  At BMM, these tools are used to inform staff and users as
-     XAS scans and other time consuming chores are started and finished.
+     Obtain Slack development keys and uploader tokens.  Post images
+     and text to Slack using Bluesky.  This incorporates readily into
+     Bluesky measurement plans.  At BMM, these tools are used to
+     inform staff and users as XAS scans and other time consuming
+     chores are started and finished.
 
    Beamline
      `BMM <https://wiki-nsls2.bnl.gov/beamline6BM/index.php?Main_Page>`__

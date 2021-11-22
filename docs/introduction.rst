@@ -41,6 +41,20 @@ machine learning into the Bluesky workflow.  Show how you display
 information to your users in a convenient way.  No examples are too
 big or too small.
 
+To get started, first install `sphinx <http://www.sphinx-doc.org/>`__
+and the {book}theme `as explained here
+<https://sphinx-book-theme.readthedocs.io/en/latest/tutorials/get-started.html>`__
+
+Once you have downloaded a fork of `the repository
+<https://github.com/bruceravel/bluesky-book>`__, edit away.  You can
+check that your contributions build correctly by going to the ``docs``
+folder and running ``make html``.  Once your contributions contain all
+your wisdom and build correctly, go ahead and make a pull request.
+
+
+Style guide
+-----------
+
 If you contribute, please follow the existing examples:
 
 #. Make a sub-folder to contain the rst files of your chapter.

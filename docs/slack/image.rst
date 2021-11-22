@@ -8,6 +8,9 @@ experience much richer.  Being able to see the result of a measurement
 on Slack makes it much easier to walk away from the beamline and have
 confidence that things are proceeding apace.
 
+Obtain an uploader token
+------------------------
+
 The process to enabling image posts is rather similar to posting text.
 Here is a handy page that I followed when I was setting this up:
 https://hamzaafridi.com/sending-a-file-to-a-slack-channel-using-api/
