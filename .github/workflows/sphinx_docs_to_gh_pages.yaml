@@ -28,7 +28,7 @@ jobs:
         run: |
           python setup.py install
       - name: Running the Sphinx to gh-pages Action
-        uses: NSLS-II-BMM/bluesky-by-example
+        uses: NSLS-II-BMM/bluesky-by-example@main
         with:
           branch: main
           dir_docs: .
