@@ -82,7 +82,7 @@ There is nothing horribly wrong with that ... except:
    interface to the `QuadEM electrometer interface
    <https://blueskyproject.io/ophyd/generated/ophyd.quadem.html#module-ophyd.quadem>`__
    used at BMM (note that there is not much information at the other
-   end of that link |:face_with_rolling_eyes:|).
+   end of that link).
 
 #. It requires that the user know that the name of the DCM pitch motor
    is ``dcm_pitch``. 

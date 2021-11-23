@@ -18,5 +18,4 @@ dependencies:
   - sphinx-markdown-tables
   - sphinx-book-theme
   - sphinx-math-dollar
-  - sphinxemoji
-  
+

@@ -54,7 +54,6 @@ Next install some Sphinx extensions:
 .. code-block:: bash
 
    pip install sphinx-math-dollar
-   pip install sphinxemoji
 
 Downloaded a fork of `the repository
 <https://github.com/NSLS-II-BMM/bluesky-by-example>`__ and edit away!
