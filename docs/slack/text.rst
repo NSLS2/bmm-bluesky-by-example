@@ -1,4 +1,6 @@
 
+.. _slack-text:
+
 Posting a text message to Slack
 ===============================
 

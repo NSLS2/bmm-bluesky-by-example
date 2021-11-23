@@ -14,6 +14,7 @@ Bluesky for the Beamline Scientist
    :caption: Contents:
 
    introduction.rst
+   bespokescan.rst
    linkam.rst
    slack.rst
    colored_text.rst

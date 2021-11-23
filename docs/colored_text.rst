@@ -1,8 +1,8 @@
 
 .. _colored_text:
 
-Colored Text
-============
+Colored text in bsui
+====================
 
 
 .. admonition:: Section Topic

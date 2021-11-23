@@ -45,8 +45,19 @@ To get started, first install `sphinx <http://www.sphinx-doc.org/>`__
 and the {book}theme `as explained here
 <https://sphinx-book-theme.readthedocs.io/en/latest/tutorials/get-started.html>`__
 
-Once you have downloaded a fork of `the repository
-<https://github.com/NSLS-II-BMM/bluesky-by-example>`__ and edit away.
+Next install some Sphinx extensions:
+
+* ``sphinx-math-dollar`` to render equations and mathematical symbols
+* ``sphinxemoji`` to render cute emojis
+
+
+.. code-block:: bash
+
+   pip install sphinx-math-dollar
+   pip install sphinxemoji
+
+Downloaded a fork of `the repository
+<https://github.com/NSLS-II-BMM/bluesky-by-example>`__ and edit away!
 You can check that your contributions build correctly by going to the
 ``docs`` folder and running ``make html``.  Once your contributions
 contain all your wisdom and build correctly, go ahead and make a pull
