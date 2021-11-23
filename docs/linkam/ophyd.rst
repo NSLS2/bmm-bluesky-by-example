@@ -145,7 +145,7 @@ With this, it is now possible to do
 
 and see something like this at the bsui terminal:
 
-.. _fig-progressbar:
+.. _fig-linkam-progressbar:
 .. figure:: ../_static/progressbar.png
    :target: ../_static/progressbar.png
    :align: center

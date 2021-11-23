@@ -55,7 +55,12 @@ html_theme_options = {
     "use_issues_button": True,
     "use_repository_button": True,
     "use_download_button": True,
+    "extra_navbar": '<p><a href=https://blueskyproject.io><img src="_static/bluesky-logo-dark.svg" style="height: 1cm;"><br>The Bluesky Project</a></p>',
 }
+
+#html_sidebars = {
+#    "**": ["sidebar-logo.html", "search-field.html", "sbt-sidebar-nav.html", "sbt-sidebar-footer.html"]
+#}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

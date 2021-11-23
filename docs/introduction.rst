@@ -30,9 +30,9 @@ Contributing to this effort
 ---------------------------
 
 Please feel free to fork this from
-https://github.com/bruceravel/bluesky-book, write up your own content,
-and submit a pull request to have your content included.  The more
-voices heard, from the better.
+https://github.com/NSLS-II-BMM/bluesky-by-example, write up your own
+content, and submit a pull request to have your content included.  The
+more voices heard from, the better.
 
 Submit short examples or lengthy deep dives.  Show how you turned
 busy work into something simple and routine.  Show how to interface to
@@ -46,16 +46,18 @@ and the {book}theme `as explained here
 <https://sphinx-book-theme.readthedocs.io/en/latest/tutorials/get-started.html>`__
 
 Once you have downloaded a fork of `the repository
-<https://github.com/bruceravel/bluesky-book>`__, edit away.  You can
-check that your contributions build correctly by going to the ``docs``
-folder and running ``make html``.  Once your contributions contain all
-your wisdom and build correctly, go ahead and make a pull request.
+<https://github.com/NSLS-II-BMM/bluesky-by-example>`__ and edit away.
+You can check that your contributions build correctly by going to the
+``docs`` folder and running ``make html``.  Once your contributions
+contain all your wisdom and build correctly, go ahead and make a pull
+request.
 
 
 Style guide
 -----------
 
-If you contribute, please follow the existing examples:
+If you contribute, please proofread and please follow these style
+guidelines:
 
 #. Make a sub-folder to contain the rst files of your chapter.
 
@@ -67,12 +69,24 @@ If you contribute, please follow the existing examples:
    the original source code, and appreciate you, the brilliant,
    wonderful person sharing your knowledge.
 
+#. If you label sections, figures, tables, etc in your contribution
+   using `Sphinx cross-referencing
+   <https://docs.readthedocs.io/en/stable/guides/cross-referencing-with-sphinx.html>`__,
+   you should use the name of your folder/index file in the
+   reference label to avoid label name collisions.  For example, in
+   the section on the Ophyd interface for the Linkam stage, all the
+   labels contain the string "linkam".
+
 #. If your contribution is quite short and can be contained in a
    single rst file, simply put that rst file in the top folder without
    creating a sub-folder for your content.  If, however, your content
    can reasonably be split up among various files and placed in a
    sub-folder, it is better to do that.
 
+Beyond that, feel free to include material on any topic, using any
+feature of the Sphinx system.  In particular, note that the
+{book}theme make special provision for `Jupyter content
+<https://sphinx-book-theme.readthedocs.io/en/latest/notebooks.html>`__.
 
 Notes
 -----

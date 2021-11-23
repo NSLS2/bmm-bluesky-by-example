@@ -14,7 +14,7 @@ of the controller.
    linkam.status()
 
 
-.. _fig-statusbox:
+.. _fig-linkam-statusbox:
 .. figure:: ../_static/statusbox.png
    :target: ../_static/statusbox.png
    :align: center

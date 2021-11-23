@@ -13,8 +13,8 @@ Colored Text
    listings for those things.
 
    Lesson
-     Use IPython tools to apply color and style to text written to the
-     bsui terminal
+     Develop convenient tools for applying color and style to text
+     written to the bsui terminal.
 
    Beamline
      `BMM <https://wiki-nsls2.bnl.gov/beamline6BM/index.php?Main_Page>`__
@@ -107,7 +107,7 @@ a box with a title line at the top.  This uses the ``colored``
 function shown above to color the characters making up the walls of
 the box.
 
-The :ref:`Linkam status display <fig-statusbox>` is an example of this
+The :ref:`Linkam status display <fig-linkam-statusbox>` is an example of this
 in use, with some of the interior text being displayed using the
 ``colored()`` function described above.
 

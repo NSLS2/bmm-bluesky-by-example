@@ -15,7 +15,7 @@ one of the beamline's IOC servers..
 Jakub also provided us with a CSS screen as an interface to the
 Linkam.  Here's what that looks like.
 
-.. _fig-css:
+.. _fig-linkam-css:
 .. figure:: ../_static/css.png
    :target: ../_static/css.png
    :align: center
