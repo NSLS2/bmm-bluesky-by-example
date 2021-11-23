@@ -6,7 +6,7 @@
 An Ophyd device for the Linkam T96
 ==================================
 
-.. admonition:: Chapter Topic
+.. admonition:: Section Topic
 
    This documents the Ophyd class for the `Linkam
    <https://www.linkam.co.uk/temperature-controlled-stages>`__ T96

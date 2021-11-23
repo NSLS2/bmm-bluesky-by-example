@@ -2,7 +2,7 @@
 Communicating from the beamline with Slack
 ==========================================
 
-.. admonition:: Chapter Topic
+.. admonition:: Section Topic
 
    This documents how to post images and text to Slack withing
    Bluesky.

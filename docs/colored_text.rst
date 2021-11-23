@@ -5,7 +5,7 @@ Colored Text
 ============
 
 
-.. admonition:: Chapter Topic
+.. admonition:: Section Topic
 
    Many of the example code blocks in the sections showing code
    developed at BMM show functions and tools used at BMM which are not
@@ -31,11 +31,14 @@ Colored Text
 Colorful terminal text
 ----------------------
 
-BMM does a lot at the command line.  It is helpful to have tools for
-emphasizing text printed to the screen in various ways.  Happily,
+BMM users do a lot at the command line.  It is helpful to have tools
+for emphasizing text printed to the screen in various ways.  Happily,
 IPython provides good tools for applying ASCII colors and accents to
 terminal text.  The following is some syntactic sugar making those
 tools easier to use.
+
+There are several examples of the colored text shortcuts in
+:ref:`the status method shown in the Linkam code listing <linkam_codelisting>`.
 
 .. code-block:: python
    :linenos:

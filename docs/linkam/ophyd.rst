@@ -81,7 +81,7 @@ Suppose this is a pythonically True statement:
 
 .. code-block:: python
 
-   linkam.status_code.get() & 2 == 2
+   int(linkam.status_code.get()) & 2 == 2
 
 This means that the temperature is at its set point.  So, if
 ``linkam.status_code`` is 6.0, then the 2-bit is set and the
@@ -129,10 +129,10 @@ DerivedSignal which is used to extract the 2 bit from the
         status_code = Cpt(EpicsSignal, 'STATUS')
 	done = Cpt(AtSetpoint, parent_attr = 'status_code')
 
-In short, ``linkam.done`` will return 0 when the temperature is
-not at he set point and 1 when it has reached the set point.  This
-class now meets enough of the semantic needs of the PVPositioner class
-that it can be used in a bluesky plan.
+In short, ``linkam.done`` will return 0 when the temperature is not at
+the set point and 1 when it has reached the set point.  This class now
+meets enough of the semantic needs of the PVPositioner class that it
+can be used in a bluesky plan.
 
 Linkam as a positioner
 ----------------------
@@ -150,7 +150,7 @@ and see something like this at the bsui terminal:
    :target: ../_static/progressbar.png
    :align: center
 
-   A bluesky progress bar as the Linkam stage heats up
+   A bluesky progress bar as the Linkam stage heats up.
 
 
 To use this:
@@ -162,7 +162,8 @@ To use this:
 The ``egu`` string (i.e., engineering units) is used in the progress
 bar that is displayed during a move.
 
-The ``settle_time`` is configurable on-the-fly:
+The ``settle_time`` is configurable at the bsui command line or in a
+measurement plan:
 
 .. code-block:: python
 

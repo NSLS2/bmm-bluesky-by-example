@@ -96,7 +96,8 @@ posted as each individual XAS scan is started and finished.
 The content of the text message can be anything and of any length.  As
 you can see from the example in the figure, the messages are
 constructed from text relevant to the measurement being made.  The
-messages can even include emoji.  For example, you see the
+messages can even include `emoji codes
+<https://listemoji.com/cheat-sheet>`__.  For example, you see the
 ``:heavy_check_mark:`` emoji, which is used to communicate the result
 of the test run by BMM's machine learning data evaluation tool.
 

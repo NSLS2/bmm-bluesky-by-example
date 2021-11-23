@@ -24,6 +24,7 @@ author = 'Bruce Ravel'
 # The full version, including alpha/beta/rc tags
 release = '0.1'
 
+numfig = True
 
 # -- General configuration ---------------------------------------------------
 
@@ -50,7 +51,10 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 html_theme = 'sphinx_book_theme'
 html_theme_options = {
     "repository_url": "https://github.com/NSLS-II-BMM/bluesky-by-example",
+    "use_edit_page_button": False,
+    "use_issues_button": True,
     "use_repository_button": True,
+    "use_download_button": True,
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
