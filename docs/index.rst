@@ -18,11 +18,18 @@ Bluesky for the Beamline Scientist
    linkam.rst
    slack.rst
    colored_text.rst
+..
+   NewThing.rst
+
+..
+   Add your new contribution to the table of contents.  For example,
+   NewThing.rst can be added by removing the line with two dots.
 
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
+
+..
+  Indices and tables
+  ==================
+  * :ref:`modindex`
+  * :ref:`genindex`

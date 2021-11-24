@@ -1,0 +1,25 @@
+
+Your New Thing
+==============
+
+.. admonition:: Section Topic
+
+   In this paragraph tell the user what your thing is for
+
+   :Lesson: In this paragraph tell the user what they will learn by reading
+            your thing.
+
+   :Beamline: `TLA <https://your_facility.gov/your_beamline>`__
+
+   :Link to source code: `your_thing.py <https://github.com/Project/repo/blob/master/your_thing.py>`__
+
+   :Section author: Your Name (your_name@your_lab.gov)
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Contents:
+
+   NewThing/problem.rst
+   NewThing/solution.rst
+   NewThing/codelisting.rst

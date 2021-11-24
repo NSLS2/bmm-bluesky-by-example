@@ -69,7 +69,7 @@ So something like this would work at the :
 
 .. code-block:: python
 
-   RE(rel_scan([quadem], dcm_pitch, -0.1, 0.1, 101)
+   RE(rel_scan([quadem], dcm_pitch, -0.1, 0.1, 101))
 
 This tells bsui to make the scan in a range of $\pm$100 $\mu$radians
 of the current position and to do so over 101 steps.  That works out
@@ -90,9 +90,11 @@ There is nothing horribly wrong with that ... except:
 #. It requires that the user knows the correct scale of motion and
    size of step to ask for in the scan.
 
-#. It will not make a plot of the data.  A plotting subscription can
-   certainly be set up, but that's a lot to ask of a user.
+#. It will not make a plot of the data.  A `plotting subscription
+   <https://blueskyproject.io/bluesky/callbacks.html#liveplot-for-scalar-data>`__
+   can certainly be set up, but that's a lot to ask of a user.
 
+#. It only makes the scan, it does not move to  the correct position.
 
 While it is certainly true that the user can be trained to do this
 operation correctly, much better would be to hide the implementation

@@ -48,14 +48,20 @@ and the {book}theme `as explained here
 Next install some Sphinx extensions:
 
 * ``sphinx-math-dollar`` to render equations and mathematical symbols
-* ``sphinxemoji`` to render cute emojis
+
+..
+  * ``sphinxemoji`` to render cute emojis
 
 
 .. code-block:: bash
 
    pip install sphinx-math-dollar
 
-Downloaded a fork of `the repository
+..
+   pip install sphinxemoji
+   Alas, Github actions was unable to install this package.  Sigh...
+
+Download a fork of `the repository
 <https://github.com/NSLS-II-BMM/bluesky-by-example>`__ and edit away!
 You can check that your contributions build correctly by going to the
 ``docs`` folder and running ``make html``.  Once your contributions
@@ -69,12 +75,22 @@ Style guide
 If you contribute, please proofread and please follow these style
 guidelines:
 
-#. Make a sub-folder to contain the rst files of your chapter.
+#. Choose an evocative name for your contribution.  That name will be
+   used for your contribution's index file and for the subfolder
+   containing your content.
 
-#. Put a index file for your chapter in the top directory.  That index
-   file should have the same name as your sub-folder.
+#. Copy the ``NewThing`` sub-folder to a sub-folder with your
+   evocative name.  Note that the ``NewThing`` folder comes with some
+   example ``.rst`` files.  You do not need to structure your
+   contribution in this way -- do whatever best tells your story.  Be
+   sure that the table of contents in your index file points to each
+   of the files in your sub-folder.
 
-#. Follow the content of the admonition block at the top of the index
+#. Copy the ``NewThing.rst.example`` index file to an ``.rst`` file
+   with your evocative name in the top directory.  Note that the index
+   file should have the same name as the sub-folder.
+
+#. Fill in the content of the admonition block at the top of the index
    file so the reader can understand the intent of the chapter, find
    the original source code, and appreciate you, the brilliant,
    wonderful person sharing your knowledge.
@@ -89,18 +105,24 @@ guidelines:
 
 #. If your contribution is quite short and can be contained in a
    single rst file, simply put that rst file in the top folder without
-   creating a sub-folder for your content.  If, however, your content
-   can reasonably be split up among various files and placed in a
-   sub-folder, it is better to do that.
+   creating a sub-folder for your content.  Follow the example of
+   ``colored_text.rst``.  Note that the one-pager should still have
+   the admonition block at the beginning to explain intent and
+   authorship.  If, however, your content can reasonably be split up
+   among various files and placed in a sub-folder, it is better to do
+   that.
 
 Beyond that, feel free to include material on any topic, using any
 feature of the Sphinx system.  In particular, note that the
-{book}theme make special provision for `Jupyter content
+`{book}theme
+<https://sphinx-book-theme.readthedocs.io/en/latest/index.html>`__
+makes special provision for `Jupyter content
 <https://sphinx-book-theme.readthedocs.io/en/latest/notebooks.html>`__.
 
 Notes
 -----
 
-This documentation project uses the lovely {book}theme from
-https://sphinx-book-theme.readthedocs.io/en/latest/index.html
-and `The Executable Book Project <https://ebp.jupyterbook.org/>`__.
+This documentation project uses the lovely `{book}theme
+<https://sphinx-book-theme.readthedocs.io/en/latest/index.html>`__
+from the `The Executable Book Project
+<https://ebp.jupyterbook.org/>`__.

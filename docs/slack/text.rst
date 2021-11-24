@@ -103,4 +103,8 @@ messages can even include `emoji codes
 ``:heavy_check_mark:`` emoji, which is used to communicate the result
 of the test run by BMM's machine learning data evaluation tool.
 
+.. code-block:: python
+
+   post_to_slack('Data evaluation: :heavy_check_mark:')
+
 

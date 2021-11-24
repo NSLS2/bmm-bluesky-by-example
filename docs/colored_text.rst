@@ -12,18 +12,14 @@ Colored text in bsui
    standard parts of IPython or Bluesky.  This section shows code
    listings for those things.
 
-   Lesson
-     Develop convenient tools for applying color and style to text
-     written to the bsui terminal.
+   :Lesson: Develop convenient tools for applying color and style to
+	    text written to the bsui terminal.
 
-   Beamline
-     `BMM <https://wiki-nsls2.bnl.gov/beamline6BM/index.php?Main_Page>`__
+   :Beamline: `BMM <https://wiki-nsls2.bnl.gov/beamline6BM/index.php?Main_Page>`__
 
-   Link to beamline source code
-     `linkam.py <https://github.com/NSLS-II-BMM/profile_collection/blob/master/startup/BMM/functions.py>`__
+   :Link to source code: `functions.py <https://github.com/NSLS-II-BMM/profile_collection/blob/master/startup/BMM/functions.py>`__
 
-   Section author 
-     Bruce Ravel (bravel@bnl.gov)
+   :Section author: Bruce Ravel (bravel@bnl.gov)
 
 
 
@@ -43,26 +39,24 @@ There are several examples of the colored text shortcuts in
 .. code-block:: python
    :linenos:
 
+    from IPython.utils.coloransi import TermColors as color
+
     def colored(text, tint='white', attrs=[]):
         '''
         A simple wrapper around IPython's interface to TermColors
         '''
-        if not is_re_worker_active():
-            from IPython.utils.coloransi import TermColors as color
-            tint = tint.lower()
-            if 'dark' in tint:
-                tint = 'Dark' + tint[4:].capitalize()
-            elif 'light' in tint:
-                tint = 'Light' + tint[5:].capitalize()
-            elif 'blink' in tint:
-                tint = 'Blink' + tint[5:].capitalize()
-            elif 'no' in tint:
-                tint = 'Normal'
-            else:
-                tint = tint.capitalize()
-            return '{0}{1}{2}'.format(getattr(color, tint), text, color.Normal)
+        tint = tint.lower()
+        if 'dark' in tint:
+            tint = 'Dark' + tint[4:].capitalize()
+        elif 'light' in tint:
+            tint = 'Light' + tint[5:].capitalize()
+        elif 'blink' in tint:
+            tint = 'Blink' + tint[5:].capitalize()
+        elif 'no' in tint:
+            tint = 'Normal'
         else:
-            return(text)
+            tint = tint.capitalize()
+        return '{0}{1}{2}'.format(getattr(color, tint), text, color.Normal)
 
     def error_msg(text):
         '''Red text'''
@@ -98,6 +92,26 @@ There are several examples of the colored text shortcuts in
 This, then, associates different colors and accents on the text to
 meaningful words.  "Error" means bright red text.  "Go" means bright,
 green text, and so on.
+
+
+Examples:
+
+.. code-block:: python
+
+   print(go_msg('Scan finished successfully!'))
+
+   print(error_msg('Unable to do the thing...'))
+
+   print(whisper('don\'t forget to open the shutter'))
+
+
+.. _fig-colored-text-example:
+.. figure:: _static/colored_text_example.png
+   :target: _static/colored_text_example.png
+   :align: center
+
+   Examples of colored text
+
 
 Boxed blocks of text
 --------------------
@@ -138,3 +152,28 @@ in use, with some of the interior text being displayed using the
           add = ' '*(width-ansiwrap.ansilen(lne))
           print(' '.join([colored(strut, tint), lne, add, colored(strut, tint)]))
       print(colored(''.join([ll, bar*(width+3), lr]), tint))
+
+
+Example:
+
+.. code-block:: python
+
+   text = '''Double, double toil and trouble;
+   Fire burn and caldron bubble.
+   Fillet of a fenny snake,
+   In the caldron boil and bake;
+   Eye of newt and toe of frog,
+   Wool of bat and tongue of dog,
+   Adder's fork and blind-worm's sting,
+   Lizard's leg and howlet's wing,
+   For a charm of powerful trouble,
+   Like a hell-broth boil and bubble.
+   '''
+   boxedtext('Song of the Witches', text, 'brown', width=45)
+
+.. _fig-colored-text-boxedtext:
+.. figure:: _static/boxedtext_example.png
+   :target: _static/boxedtext_example.png
+   :align: center
+
+   Example of boxed text with a brown border

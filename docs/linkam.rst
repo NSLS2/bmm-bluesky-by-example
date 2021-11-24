@@ -1,7 +1,3 @@
-.. linkam-ophyd documentation master file, created by
-   sphinx-quickstart on Fri Sep  3 08:25:47 2021.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
 
 An Ophyd device for the Linkam T96
 ==================================
@@ -12,31 +8,28 @@ An Ophyd device for the Linkam T96
    <https://www.linkam.co.uk/temperature-controlled-stages>`__ T96
    temperature stage controller developed for use at BMM.
 
-   Lesson
-     Turn a controller and a sensor into an Ophyd positioner. This
-     allows you to do something like this at the command line:
+   :Lesson: Turn a controller and a sensor into an Ophyd
+	    positioner. This allows you to do something like this at
+	    the command line:
 
-     .. code-block:: python
+	    .. code-block:: python
 
-	RE(mv([linkam], 250))
+	       RE(mv([linkam], 250))
 
-     or this in a Bluesky plan:
+	    or this in a Bluesky plan:
 
-     .. code-block:: python
+	    .. code-block:: python
 
-	yield from mv([linkam], 250)
+	       yield from mv([linkam], 250)
 
-     This example also explains how to compute a custom signal
-     indicating that the positioner is done moving.
+	    This example also explains how to compute a custom signal
+	    indicating that the positioner is done moving.
 
-   Beamline
-     `BMM <https://wiki-nsls2.bnl.gov/beamline6BM/index.php?Main_Page>`__
+   :Beamline: `BMM <https://wiki-nsls2.bnl.gov/beamline6BM/index.php?Main_Page>`__
 
-   Link to beamline source code
-     `linkam.py <https://github.com/NSLS-II-BMM/profile_collection/blob/master/startup/BMM/linkam.py>`__
+   :Link to source code: `linkam.py <https://github.com/NSLS-II-BMM/profile_collection/blob/master/startup/BMM/linkam.py>`__
 
-   Section author 
-     Bruce Ravel (bravel@bnl.gov)
+   :Section author: Bruce Ravel (bravel@bnl.gov)
 
 
 .. toctree::
