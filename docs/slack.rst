@@ -15,7 +15,7 @@ Communicating from the beamline with Slack
 
    :Beamline: `BMM <https://wiki-nsls2.bnl.gov/beamline6BM/index.php?Main_Page>`__
 
-   :Link to source code: `logging.py <https://github.com/NSLS-II-BMM/profile_collection/blob/master/startup/BMM/logging.py>`__
+   :Link to source code: `logging.py <https://github.com/NSLS-II-BMM/profile_collection/blob/master/startup/BMM/logging.py#L84-L136>`__
 
    :Section author: Bruce Ravel (bravel@bnl.gov)
 

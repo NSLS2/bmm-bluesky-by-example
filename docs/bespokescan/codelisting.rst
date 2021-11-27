@@ -25,7 +25,7 @@ functions discussed in :ref:`colored_text`.
     from bluesky.preprocessors import finalize_wrapper
 
     import numpy, pandas
-    from lmfit.models import SkewedGaussianModel, RectangleModel
+    from lmfit.models import SkewedGaussianModel
     from scipy.ndimage import center_of_mass
 
     def rocking_curve(start=-0.10, stop=0.10, nsteps=101, choice='peak'):

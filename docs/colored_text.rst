@@ -17,7 +17,7 @@ Colored text in bsui
 
    :Beamline: `BMM <https://wiki-nsls2.bnl.gov/beamline6BM/index.php?Main_Page>`__
 
-   :Link to source code: `functions.py <https://github.com/NSLS-II-BMM/profile_collection/blob/master/startup/BMM/functions.py>`__
+   :Link to source code: `functions.py <https://github.com/NSLS-II-BMM/profile_collection/blob/master/startup/BMM/functions.py#L34>`__
 
    :Section author: Bruce Ravel (bravel@bnl.gov)
 
@@ -117,7 +117,7 @@ Boxed blocks of text
 --------------------
 
 Additional emphasis can be placed on a block of text by putting it in
-a box with a title line at the top.  This uses the ``colored``
+a box with a title line at the top.  This uses the ``colored()``
 function shown above to color the characters making up the walls of
 the box.
 

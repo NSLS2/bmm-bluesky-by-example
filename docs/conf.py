@@ -60,7 +60,7 @@ html_theme_options = {
     "use_issues_button": True,
     "use_repository_button": True,
     "use_download_button": True,
-    "extra_navbar": '<p><a href=https://blueskyproject.io><img src="_static/bluesky-logo-dark.svg" style="height: 1.5cm;" alt="Bluesky logo"><br>The Bluesky Project</a></p>',
+    "extra_navbar": '<p><a href=https://blueskyproject.io><img src="https://blueskyproject.io/_assets/bluesky-logo-dark.svg" style="height: 1.5cm;" alt="Bluesky logo"><br>The Bluesky Project</a></p>',
 }
 
 #html_sidebars = {

@@ -16,7 +16,7 @@ Bespoke beamline specific plans
 
    :Beamline: `BMM <https://wiki-nsls2.bnl.gov/beamline6BM/index.php?Main_Page>`__
 
-   :Link to source code: `linescan.py <https://github.com/NSLS-II-BMM/profile_collection/blob/master/startup/BMM/linescan.py>`__
+   :Link to source code: `linescan.py <https://github.com/NSLS-II-BMM/profile_collection/blob/master/startup/BMM/linescans.py#L199>`__
 
    :Section author: Bruce Ravel (bravel@bnl.gov)
 

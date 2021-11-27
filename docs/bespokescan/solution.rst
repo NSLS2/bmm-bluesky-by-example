@@ -20,7 +20,7 @@ Here are the goals of our bespoke rocking curve plan:
    the scan.
 
 #. Make changes to the data acquisition configuration to facilitate
-   the measurements at the start of the scan and restore the
+   the measurement at the start of the scan and restore the
    configuration to a sensible resting state at the end.
 
 #. Provide some on-screen feedback about the scan and the optimal
@@ -119,7 +119,7 @@ Lines 6 to 8 set up the live plot in the manner implemented at BMM.
 `DerivedPlot
 <https://github.com/NSLS-II-BMM/profile_collection/blob/master/startup/BMM/derivedplot.py>`__
 is a fairly clunky tool used throughout BMM's profile.  It allows live
-plots to show the ratios of signal, which is very commonly needed at
+plots to show the ratios of signals, which is very commonly needed at
 an XAFS beamline.  In this case, we are using it in a more trivial
 way, just showing the signal on the :guilabel:`I0` detector.  This
 could also be done with the `standard Bluesky LivePlot callback
@@ -239,10 +239,12 @@ height, adjusting integration time -- are done right before calling
 the beamline to its resting state.
 
 There are two benefits to using ``finalize_wrapper`` to perform the
-cleanup chores, rather than simply putting the in-line with the main
-plan chores.  First, the cleanup can involve literally anything.
-Second, run this way, the cleanup plan will get run even if the main
-plan fails or is aborted. 
+cleanup chores, rather than simply putting those chores at the end of
+the main plan.  First, this pattern allows cleanup to be arbitrarily
+complicated.  Second, and most importantly, the cleanup plan will get
+run even if the main plan fails in some way.  This is a better (though
+still not perfect) guarantee that the beamline will be left in a
+sensible resting state.
 
 
 Choosing the peak position

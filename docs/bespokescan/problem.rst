@@ -92,7 +92,8 @@ There is nothing horribly wrong with that ... except:
 
 #. It will not make a plot of the data.  A `plotting subscription
    <https://blueskyproject.io/bluesky/callbacks.html#liveplot-for-scalar-data>`__
-   can certainly be set up, but that's a lot to ask of a user.
+   can certainly be set up, but that's yet another thing the user must
+   be trained to do.
 
 #. It only makes the scan, it does not move to  the correct position.
 
