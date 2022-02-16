@@ -8,11 +8,12 @@ Bespoke beamline specific plans
    plans tailored to specific chores frequently perfomed at the
    beamline.
 
-   :Lesson: Create plans composed of bluesky plan stubs which solve
-	    specific chores at the beamline.  Learn about the value of
-	    plan composition. The bespoke plans can be run at the bsui
-	    terminal or in a measurement plan in the same manner as
-	    the plan primitives.
+   :Lesson: Create plans composed of bluesky plan stubs and other
+	    python components which solve specific chores at the
+	    beamline.  Learn about the value of plan composition.
+	    These bespoke plans can be run at the bsui terminal or in
+	    a measurement plan in the same manner as the plan
+	    primitives.
 
    :Beamline: `BMM <https://wiki-nsls2.bnl.gov/beamline6BM/index.php?Main_Page>`__
 

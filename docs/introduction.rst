@@ -5,7 +5,7 @@ Introduction
 Running a beamline is hard!  There are so many things that have to be
 working correctly for a beamline to work correctly.  One of them is
 the data acquisition software.  Happily, we here at NSLS-II get to use
-Bluesky and it's companion libraries Ophyd and Databroker.  These are
+Bluesky and its companion libraries Ophyd and Databroker.  These are
 great tools -- robust, well supported, actively developed, extensively
 documented. 
 
@@ -45,13 +45,14 @@ To get started, first install `sphinx <http://www.sphinx-doc.org/>`__
 and the {book}theme `as explained here
 <https://sphinx-book-theme.readthedocs.io/en/latest/tutorials/get-started.html>`__
 
-Next install some Sphinx extensions:
+Next install these Sphinx extensions:
 
 * ``sphinx-math-dollar`` to render equations and mathematical symbols
 
 ..
   * ``sphinxemoji`` to render cute emojis
 
+by doing this:
 
 .. code-block:: bash
 

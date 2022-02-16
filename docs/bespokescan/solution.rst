@@ -81,10 +81,10 @@ quite large.  So a very short integration time is quite adequate.
    def rocking_curve(start=-0.10, stop=0.10, nsteps=101'):
        dets = [quadem1,]
        motor = dcm_pitch
-       yield from mv(quadem.AveragingTime, 0.1)
+       yield from mv(quadem.averaging_time, 0.1)
        yield from rel_scan(dets, motor, start, stop, nsteps)
 
-The new line 4 sets the integration time to be $\frac{1}{10}$ second.
+The new line 7 sets the integration time to be $\frac{1}{10}$ second.
 
 
 Adding a live plot
@@ -98,12 +98,12 @@ accomplished.
 .. code-block:: python
    :linenos:
 
-    from bluesky.plan_stubs import mv
+    from bluesky.plans import rel_scan
 
     def rocking_curve(start=-0.10, stop=0.10, nsteps=101'):
         dets = [quadem1,]
 	motor = dcm_pitch
-	yield from mv(quadem.AveragingTime, 0.1)
+	yield from mv(quadem.averaging_time, 0.1)
 
         func = lambda doc: (doc['data'][motor.name], doc['data']['I0'])
         plot = DerivedPlot(func, xlabel=motor.name, ylabel='I0', 
@@ -115,7 +115,7 @@ accomplished.
 
         yield from scan_dcmpitch()
 
-Lines 6 to 8 set up the live plot in the manner implemented at BMM.
+Lines 8 to 10 set up the live plot in the manner implemented at BMM.
 `DerivedPlot
 <https://github.com/NSLS-II-BMM/profile_collection/blob/master/startup/BMM/derivedplot.py>`__
 is a fairly clunky tool used throughout BMM's profile.  It allows live
@@ -126,8 +126,8 @@ could also be done with the `standard Bluesky LivePlot callback
 <https://blueskyproject.io/bluesky/callbacks.html#liveplot-for-scalar-data>`__.
 
 This plotting apparatus is then attached to a local function as a
-function decorator at line 10.  The local function is called at
-line 14.
+function decorator at line 12.  The local function is called at
+line 16.
 
 
 Moving to the correct position
@@ -151,7 +151,7 @@ to the top of the file defining this plan.  This imports the `pandas
 <https://pandas.pydata.org/>`__ data analysis library, which is super
 handy.  In particular we want the ``pandas.Series.idxmax`` function,
 which will give us the index of the point in the :guilabel:`I0` signal
-array containing the maximum value.  We then select the value of motor
+array containing the maximum value. [1]_  We then select the value of motor
 position array at that index.  That is the peak position.
 
 .. code-block:: python
@@ -224,12 +224,12 @@ To flesh this out a bit:
 
         def cleanup_plan():
             yield from mv(motor, slit_height)
-	    yield from mv(quadem.AveragingTime, 0.5)
+	    yield from mv(quadem.averaging_time, 0.5)
 
 	motor = dcm_pitch
 	slit_height = slits3.vsize.readback.get()
 	yield from mv(motor, 3)
-        yield from mv(quadem.AveragingTime, 0.1)
+        yield from mv(quadem.averaging_time, 0.1)
         yield from finalize_wrapper(main_plan(start, stop, nsteps), cleanup_plan())
 
 With this plan definition, the preparatory tasks -- adjusting slit
@@ -257,7 +257,7 @@ find the peak position.  The default option is ``peak``, as discussed
 above.  The other two options are to compute the center of mass of the
 peak using a function imported from `SciPy <https://scipy.org/>`__ or
 to perform a fit using `lmfit <https://lmfit.github.io/lmfit-py/>`__.
-The ``choice`` parameter would then be set to ``com`` or ``fit``,
+[2]_ The ``choice`` parameter would then be set to ``com`` or ``fit``,
 respectively. 
 
 Passing the ``choice`` parameter all the way into the ``main_plan()``
@@ -341,3 +341,15 @@ optimization scan of the position of the hutch slit assembly.
 Plans composed of plans composed of plans.
 
 
+Footnotes
+---------
+
+.. [1] This could also be done with `numpy.argmax
+       <https://numpy.org/doc/stable/reference/generated/numpy.argmax.html>`__
+       That said, if you are reading this document and do not know
+       about `pandas <https://pandas.pydata.org/>`__, you should.
+.. [2] Fitting could also be done using `SciPy's optimizer
+       <https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html>`__. 
+       That said, if you are reading this document and do not know
+       about `lmfit <https://lmfit.github.io/lmfit-py/>`__, you should.
+       

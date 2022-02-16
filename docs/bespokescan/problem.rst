@@ -7,7 +7,7 @@ monochromator (DCM) like the one at NSLS-II's BMM (Beamline for
 Materials Measurement) and many other beamlines.  The broadband
 radiation from the 3-pole wiggler source is incident upon the first
 crystal of the DCM.  At BMM, we most often use a Si(111) DCM and have
-the option to use Si(311) crystals.  The schematic below applies
+the option to use Si(311) crystals.  This discussion applies
 equally well to either crystal type (and to any other crystal
 monochrmoator, as well).
 
@@ -71,9 +71,9 @@ So something like this would work at the :
 
    RE(rel_scan([quadem], dcm_pitch, -0.1, 0.1, 101))
 
-This tells bsui to make the scan in a range of $\pm$100 $\mu$radians
+This tells bsui to make the scan in a range of $\pm$100 microradians
 of the current position and to do so over 101 steps.  That works out
-to steps of 2 $\mu$radians.
+to steps of 2 microradians.
 
 There is nothing horribly wrong with that ... except:
 

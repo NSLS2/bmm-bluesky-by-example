@@ -8,7 +8,7 @@ An Ophyd device for the Linkam T96
    <https://www.linkam.co.uk/temperature-controlled-stages>`__ T96
    temperature stage controller developed for use at BMM.
 
-   :Lesson: Turn a controller and a sensor into an Ophyd
+   :Lesson: Turn a temperature controller and a sensor into an Ophyd
 	    positioner. This allows you to do something like this at
 	    the command line:
 

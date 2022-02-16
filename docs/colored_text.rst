@@ -68,8 +68,8 @@ There are several examples of the colored text shortcuts in
         '''Green text'''
         return colored(text, 'lightgreen')
     def url_msg(text):
-        '''Undecorated text, intended for URL decoration...'''
-        return text
+        '''Text without decoration, reserved for URL decoration...'''
+        return colored(text, 'normal')
     def bold_msg(text):
         '''Bright white text'''
         return colored(text, 'white')
