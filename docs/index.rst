@@ -17,6 +17,7 @@ Bluesky for the Beamline Scientist
    bespokescan.rst
    linkam.rst
    slack.rst
+   redis.rst
    colored_text.rst
 ..
    NewThing.rst
