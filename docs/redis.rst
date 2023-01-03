@@ -9,14 +9,14 @@ Using Redis to store beamline state persistently
    This documents one way of using `Redis <https://redis.io/>`__ at a
    beamline.  Redis is an in-memory data store which can be served
    from a server at the beamline.  At BMM, Redis is used to store
-   keyword/value pairs |nd| a dict, in essence |nd| as a way of
+   keyword/value pairs |nd| i.e. a dictionary |nd| as a way of
    maintaining the state of an experiment.
 
    :Lesson: Maintain the state of an experiment in a way that is
 	    independent of the running Bluesky process.  In this way,
-	    state can be preserved even if Bluesky crashes of if
-	    multiple processes require knowledge of the state of the
-	    running experiment.
+	    state can be preserved even if Bluesky crashes.  It also
+	    allows multiple processes to access knowledge of the state
+	    of the running experiment.
 
    :Beamline: `BMM <https://wiki-nsls2.bnl.gov/beamline6BM/index.php?Main_Page>`__
 

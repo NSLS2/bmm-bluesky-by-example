@@ -8,9 +8,9 @@ What is Redis?
 ==============
 
 In this section, Redis will be explained in the specific context of
-how it is used in day-to-day operations at BMM.  There is certainly
-more to Redis than what is presented here, but this should be a useful
-overview for any beamline scientist.
+how it is used in daily operations at BMM.  There is certainly more to
+Redis than what is presented here, but this should be a useful
+starting point for any beamline scientist.
 
 `Redis <https://redis.io/>`__ is a persistent, network-accessible data
 store.  So ... what does that mean?
@@ -21,8 +21,8 @@ computer in the beamline LAN.  Specifically, Redis can be accessed by
 any workstation, IOC server, VM, or display machine at the beamline.
 
 The simplest way to use Redis (in fact, the way that Redis is used at
-BMM), is to consider it as a way of storing keyword/value pairs.  Here
-is an example using the Bash command line interface to Redis::
+BMM) is to store keyword/value pairs.  Here is an example using the
+Bash command line interface to Redis::
 
     redis-cli -h xf06bm-ioc2 SET mykey 2
 
@@ -67,7 +67,7 @@ At BMM, Redis is currently used to handle three situations:
 #. Providing information about the current experiment to an
    independent `beamline dashboard
    <https://nsls-ii-bmm.github.io/BeamlineManual/intro.html#ca-dashboard>`__
-   running of several of the workstations at BMM.
+   running on several of the workstations at BMM.
 
 Here are some examples of the types of information that are stored
 with Redis at BMM.
@@ -85,7 +85,7 @@ Aspects of the photon delivery system that cannot be ascertained simply by exami
 
   For example, the element and edge symbols of the most recent XAFS
   measurement are recorded.  Simply examining the position of the
-  monochromator is not sufficient to identify the intended
+  monochromator is not sufficient to uniquely identify the intended
   configuration of the beamline and the experiment.
 
   The contents of the sample holder containing energy calibration
@@ -110,13 +110,6 @@ is a simple python script using `PyEpics
 <https://pyepics.github.io/pyepics/overview.html>`__ and Redis to
 display the state of the beamline.
 
-While most of the information being displayed is from direct querying
-of EPICS PVs, a few things come from Redis, including element and edge
-(in yellow text), the identification of the reference material (``Ref:``
-|nbsp| ``Sr``) is from a combination of Redis and EPICS, and the knowledge to
-display the wheel position (``wheel`` |nbsp| ``1``, a parameter in Redis
-identifies the sample wheel as the sample holder currently in use).
-
 .. _fig-redis-dashboard:
 .. figure:: ../_static/dashboard.png
    :target: ../_static/dashboard.png
@@ -127,4 +120,14 @@ identifies the sample wheel as the sample holder currently in use).
    shutdown period |nd| there is no beam, shutters are closed, and the
    photon delivery system is in an odd state.  This picture should be
    replaced.) 
+
+While most of the information being displayed is from direct querying
+of EPICS PVs, a few things come from Redis:
+
++ element and edge (in yellow text)
++ the identification of the reference material (``Ref:`` |nbsp|
+  ``Sr``) uses information from both Redis and EPICS,
++ the knowledge to display the wheel position (``wheel`` |nbsp| ``1``)
+  comes from a parameter in Redis identifying the sample wheel as the
+  sample holder currently in use).
 
