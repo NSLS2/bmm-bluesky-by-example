@@ -131,3 +131,4 @@ of EPICS PVs, a few things come from Redis:
   comes from a parameter in Redis identifying the sample wheel as the
   sample holder currently in use).
 
+Here is `the code for the dashboard <https://github.com/NSLS-II-BMM/BMM-beamline-configuration/blob/master/tools/cadashboard>`__.
