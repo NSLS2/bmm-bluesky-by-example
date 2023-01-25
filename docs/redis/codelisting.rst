@@ -73,7 +73,7 @@ This sets a list value:
 
 .. code-block:: python
 
-     rkvs.set('BMM:example:list', ['a', 'b', 'c'])
+     rkvs.set('BMM:example:list', str(['a', 'b', 'c']))
 
 
 This retrieves that list
