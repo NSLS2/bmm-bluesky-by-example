@@ -20,7 +20,7 @@ An Ophyd device for the Linkam T96
 
 	    .. code-block:: python
 
-	       yield from mv([linkam], 250)
+	       yield from mv(linkam, 250)
 
 	    This example also explains how to compute a custom signal
 	    indicating that the positioner is done moving.

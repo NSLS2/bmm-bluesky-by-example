@@ -28,19 +28,16 @@ text file into Github.  20 minutes later, I got an email from Slack
 saying that they had disabled that webhook.  Big Brother is watching!
 
 Once I made a new webhoook, I copied the URL into a text file, then
-stored that text file on the NAS storage that we have at the
-beamline.  That is sufficiently out of view of Big Brother's watchful
-eye.
+stored that text file on central storage in a location distinct from
+the profile repository.  That is sufficiently out of view of Big
+Brother's watchful eye.
 
 At line 7 to 12 in the code list that follows, I read the secret URL
-from the NAS and store it in a variable (``default_slack_channel``)
-which is in the scope of the file defining the communication with
-Slack.  That should be sufficiently secure. (It's not really all that
-secure, but it seems to be enough for my use at the beamline.)
-
-Note that it should be OK to put the secret file on a Lustre drive.
-That should be sufficiently out of view of Slack secret-sniffing
-robots. 
+from its saved file and store it in a variable
+(``default_slack_channel``) which is in the scope of the file defining
+the communication with Slack.  That should be sufficiently
+secure. (It's not really all that secure, but it seems to be enough
+for my use at the beamline.)
 
 Code for posting text
 ---------------------

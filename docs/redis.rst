@@ -14,7 +14,7 @@ Using Redis to store beamline state persistently
 
    :Lesson: Maintain the state of an experiment in a way that is
 	    independent of the running Bluesky process.  In this way,
-	    state can be preserved even if Bluesky crashes.  It also
+	    state can be preserved even if Bluesky is exited.  It also
 	    allows multiple processes to access knowledge of the state
 	    of the running experiment.
 
