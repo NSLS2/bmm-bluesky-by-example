@@ -1,0 +1,525 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>A common measurement problem &#8212; Bluesky by Example 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>window.MathJax = {"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'bespokescan/problem';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Making a bespoke measurement plan" href="solution.html" />
+    <link rel="prev" title="Bespoke beamline specific plans" href="../bespokescan.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Bluesky by Example 0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../bespokescan.html">Bespoke beamline specific plans</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">A common measurement problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solution.html">Making a bespoke measurement plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codelisting.html">Code Listing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linkam.html">An Ophyd device for the Linkam T96</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linkam/problem.html">Linkam Stage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linkam/ophyd.html">Ophyd Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linkam/features.html">Additional features of the Linkam class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linkam/codelisting.html">Code Listing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../slack.html">Communicating from the beamline with Slack</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../slack/text.html">Posting a text message to Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../slack/image.html">Posting an image to Slack</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../redis.html">Using Redis to store beamline state persistently</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../redis/whatis.html">What is Redis?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../redis/state.html">Store and retrieve state information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../redis/codelisting.html">Code Listing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../colored_text.html">Colored text in bsui</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NSLS-II-BMM/bluesky-by-example" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NSLS-II-BMM/bluesky-by-example/issues/new?title=Issue%20on%20page%20%2Fbespokescan/problem.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/bespokescan/problem.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>A common measurement problem</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="a-common-measurement-problem">
+<h1>A common measurement problem<a class="headerlink" href="#a-common-measurement-problem" title="Permalink to this heading">#</a></h1>
+<p>The picture below shows a schematic of a double crystal
+monochromator (DCM) like the one at NSLS-II’s BMM (Beamline for
+Materials Measurement) and many other beamlines.  The broadband
+radiation from the 3-pole wiggler source is incident upon the first
+crystal of the DCM.  At BMM, we most often use a Si(111) DCM and have
+the option to use Si(311) crystals.  This discussion applies
+equally well to either crystal type (and to any other crystal
+monochrmoator, as well).</p>
+<p>Monochromation of the X-ray beam happens by Bragg diffraction. The
+crystal is on a high-resolution rotation stage. The angle between the
+incident beam and the lattice planes of the first crystal is chosen so
+that the desired wavelength <span class="math notranslate nohighlight">\(\lambda\)</span> meets the Bragg condition,
+<span class="math notranslate nohighlight">\(\lambda = 2d\sin(\Theta)\)</span></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(d\)</span> is the spacing between the lattice planes of the crystal</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Theta\)</span> is the angle between the incident beam and the lattice planes
+of the first crystal</p></li>
+</ul>
+<p>By changing the angle, we change the wavelength of the beam
+diffracting from the first crystal.  Because there is a simple
+relationship between wavelength and energy, we select X-ray energy for
+the experiment by changing the angle of the first crystal.</p>
+<figure class="align-center" id="id1">
+<span id="fig-bespokescan-dcm"></span><a class="reference external image-reference" href="../_static/doubleb.gif"><img alt="../_images/doubleb.gif" src="../_images/doubleb.gif" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Schematic of a double crystal monochromator like the one in use at
+BMM.  <a class="reference external" href="http://pd.chem.ucl.ac.uk/pdnn/inst2/condit.htm">(image source)</a></span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The second crystal of the DCM is used to direct the beam downstream,
+towards the experimental hutch.  The second crystal must at the same
+angle as the first crystal in order to meet the Bragg condition for
+the wavelength selected by the first crystal.  In order to pass the
+X-rays with high efficiency through the DCM, the lattice planes of the
+first and second crystals must be parallel with accuracy within
+microradians.</p>
+<p>Whenever we make a large change in energy – for example, when moving
+between elements with absorption edge energies that are very far apart
+– the parallelism of the crystals may not be maintained. So, it is
+prudent to minimize this difference in angle after making that large
+energy change.  This is done by making a scan of the pitch of the
+second crystal, monitoring the intensity of the X-ray beam in the
+experimental hutch. When the second crystal is perfectly parallel to
+the first crystal, the intensity of the X-rays passing the the
+monochromator is maximized.  Thus this pitch scan of the second
+crystal will produce a peaked lineshape.  We want to place the second
+crystal pitch at the maximum of this peak.</p>
+<p>At an XAFS beamline, a scan that performs this alignment is often
+called a “rocking curve scan” because we rock the pitch of the DCM
+second crystal through the parallel position, mapping out the full
+bandpass of the second crystal.</p>
+<p>This rocking curve scan is a good job for Bluesky’s <a class="reference external" href="https://blueskyproject.io/bluesky/generated/bluesky.plans.rel_scan.html#bluesky.plans.rel_scan">rel_scan()</a>.</p>
+<p>The pitch position of the second crystal is likely to be with a short
+distance of the correct position, even after a large energy change.
+So something like this would work at the :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">rel_scan</span><span class="p">([</span><span class="n">quadem</span><span class="p">],</span> <span class="n">dcm_pitch</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">101</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>This tells bsui to make the scan in a range of <span class="math notranslate nohighlight">\(\pm\)</span>100 microradians
+of the current position and to do so over 101 steps.  That works out
+to steps of 2 microradians.</p>
+<p>There is nothing horribly wrong with that … except:</p>
+<ol class="arabic simple">
+<li><p>It requires that the user knows that the relevant detector is on a
+signal chain called <code class="docutils literal notranslate"><span class="pre">quadem</span></code>, which is the name of the Ophyd
+interface to the <a class="reference external" href="https://blueskyproject.io/ophyd/generated/ophyd.quadem.html#module-ophyd.quadem">QuadEM electrometer interface</a>
+used at BMM (note that there is not much information at the other
+end of that link).</p></li>
+<li><p>It requires that the user know that the name of the DCM pitch motor
+is <code class="docutils literal notranslate"><span class="pre">dcm_pitch</span></code>.</p></li>
+<li><p>It requires that the user knows the correct scale of motion and
+size of step to ask for in the scan.</p></li>
+<li><p>It will not make a plot of the data.  A <a class="reference external" href="https://blueskyproject.io/bluesky/callbacks.html#liveplot-for-scalar-data">plotting subscription</a>
+can certainly be set up, but that’s yet another thing the user must
+be trained to do.</p></li>
+<li><p>It only makes the scan, it does not move to  the correct position.</p></li>
+</ol>
+<p>While it is certainly true that the user can be trained to do this
+operation correctly, much better would be to hide the implementation
+details behind a plan tailored to this specific chore.  This will be
+discussed in the next section.</p>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../bespokescan.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Bespoke beamline specific plans</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="solution.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Making a bespoke measurement plan</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bruce Ravel, and others
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2021, Bruce Ravel, and others.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

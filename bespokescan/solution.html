@@ -1,0 +1,768 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Making a bespoke measurement plan &#8212; Bluesky by Example 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>window.MathJax = {"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'bespokescan/solution';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Code Listing" href="codelisting.html" />
+    <link rel="prev" title="A common measurement problem" href="problem.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Bluesky by Example 0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../bespokescan.html">Bespoke beamline specific plans</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="problem.html">A common measurement problem</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Making a bespoke measurement plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codelisting.html">Code Listing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linkam.html">An Ophyd device for the Linkam T96</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linkam/problem.html">Linkam Stage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linkam/ophyd.html">Ophyd Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linkam/features.html">Additional features of the Linkam class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linkam/codelisting.html">Code Listing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../slack.html">Communicating from the beamline with Slack</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../slack/text.html">Posting a text message to Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../slack/image.html">Posting an image to Slack</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../redis.html">Using Redis to store beamline state persistently</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../redis/whatis.html">What is Redis?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../redis/state.html">Store and retrieve state information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../redis/codelisting.html">Code Listing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../colored_text.html">Colored text in bsui</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NSLS-II-BMM/bluesky-by-example" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NSLS-II-BMM/bluesky-by-example/issues/new?title=Issue%20on%20page%20%2Fbespokescan/solution.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/bespokescan/solution.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Making a bespoke measurement plan</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-live-plot">Adding a live plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-to-the-correct-position">Moving to the correct position</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-and-post-scan-configuration-changes">Pre- and post-scan configuration changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-peak-position">Choosing the peak position</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#on-screen-feedback">On-screen feedback</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plan-composition">Plan composition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes">Footnotes</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="making-a-bespoke-measurement-plan">
+<h1>Making a bespoke measurement plan<a class="headerlink" href="#making-a-bespoke-measurement-plan" title="Permalink to this heading">#</a></h1>
+<p>Here are the goals of our bespoke rocking curve plan:</p>
+<ol class="arabic">
+<li><p>Make a plan that has a name indicative of the chore being
+accomplished.  This will be called <code class="docutils literal notranslate"><span class="pre">rocking_curve()</span></code>.  At the
+bsui command line, it can be invoked simply as</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">rocking_curve</span><span class="p">())</span>
+</pre></div>
+</div>
+</li>
+<li><p>Hide the motor and detector implementation details.</p></li>
+<li><p>Make a live plot of the rocking curve as it is being measured.</p></li>
+<li><p>Move to the correct DCM second crystal pitch position at the end of
+the scan.</p></li>
+<li><p>Make changes to the data acquisition configuration to facilitate
+the measurement at the start of the scan and restore the
+configuration to a sensible resting state at the end.</p></li>
+<li><p>Provide some on-screen feedback about the scan and the optimal
+pitch position.</p></li>
+</ol>
+<section id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h2>
+<p>The rocking curve chore has fairly few variables.  It <cite>always</cite> moves
+the DCM second crystal pitch and <cite>always</cite> measures the signal on the
+<span class="guilabel">I0</span> detector.  Those simply are not parameters that the
+user has to decide upon.  We can safely hide those details inside our
+bespoke plan.</p>
+<p>Here’s our starting point:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">bluesky.plans</span> <span class="kn">import</span> <span class="n">rel_scan</span>
+<span class="linenos">2</span>
+<span class="linenos">3</span><span class="k">def</span> <span class="nf">rocking_curve</span><span class="p">(</span><span class="n">start</span><span class="o">=-</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">nsteps</span><span class="o">=</span><span class="mi">101</span><span class="s1">&#39;):</span>
+<span class="linenos">4</span>    <span class="n">dets</span> <span class="o">=</span> <span class="p">[</span><span class="n">quadem1</span><span class="p">,]</span>
+<span class="linenos">5</span>    <span class="n">motor</span> <span class="o">=</span> <span class="n">dcm_pitch</span>
+<span class="linenos">6</span>    <span class="k">yield from</span> <span class="n">rel_scan</span><span class="p">(</span><span class="n">dets</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This already accomplishes the first and second objectives listed
+above.  The motor and detector choices are made in the definition of
+the plan and the plan is given an evocative name.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">rocking_curve</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Defaults are set for the scan range and the number of steps.  The
+values of these defaults are chosen on the basis of experience at the
+beamline and with the specific monochromator.  Of course if a staff
+member or the user have a specific reason to scan over a longer range
+or to take more or fewer steps, the defaults are easily overwritten,
+like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">rocking_curve</span><span class="p">(</span><span class="n">start</span><span class="o">=-</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">nsteps</span><span class="o">=</span><span class="mi">51</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>There is one more detail about the detector that needs attention –
+the integration time.  We want this scan to go fast.  It is not an
+inherently interesting part of the user’s experimental campaign.  Also
+we know that the signal on <span class="guilabel">I0</span> when it is near the peak is
+quite large.  So a very short integration time is quite adequate.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="kn">from</span> <span class="nn">bluesky.plan_stubs</span> <span class="kn">import</span> <span class="n">mv</span>
+<span class="linenos">2</span><span class="kn">from</span> <span class="nn">bluesky.plans</span> <span class="kn">import</span> <span class="n">rel_scan</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="k">def</span> <span class="nf">rocking_curve</span><span class="p">(</span><span class="n">start</span><span class="o">=-</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">nsteps</span><span class="o">=</span><span class="mi">101</span><span class="s1">&#39;):</span>
+<span class="linenos">5</span>    <span class="n">dets</span> <span class="o">=</span> <span class="p">[</span><span class="n">quadem1</span><span class="p">,]</span>
+<span class="linenos">6</span>    <span class="n">motor</span> <span class="o">=</span> <span class="n">dcm_pitch</span>
+<span class="linenos">7</span>    <span class="k">yield from</span> <span class="n">mv</span><span class="p">(</span><span class="n">quadem</span><span class="o">.</span><span class="n">averaging_time</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="linenos">8</span>    <span class="k">yield from</span> <span class="n">rel_scan</span><span class="p">(</span><span class="n">dets</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The new line 7 sets the integration time to be <span class="math notranslate nohighlight">\(\frac{1}{10}\)</span> second.</p>
+</section>
+<section id="adding-a-live-plot">
+<h2>Adding a live plot<a class="headerlink" href="#adding-a-live-plot" title="Permalink to this heading">#</a></h2>
+<p>The implementation details of how live plots are handled at BMM is
+beyond the scope of this example (and might merit it’s own section
+here in Bluesky by Example!), but I can show the overview of how it is
+accomplished.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> <span class="kn">from</span> <span class="nn">bluesky.plans</span> <span class="kn">import</span> <span class="n">rel_scan</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span> <span class="k">def</span> <span class="nf">rocking_curve</span><span class="p">(</span><span class="n">start</span><span class="o">=-</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">nsteps</span><span class="o">=</span><span class="mi">101</span><span class="s1">&#39;):</span>
+<span class="linenos"> 4</span>     <span class="n">dets</span> <span class="o">=</span> <span class="p">[</span><span class="n">quadem1</span><span class="p">,]</span>
+<span class="linenos"> 5</span>     <span class="n">motor</span> <span class="o">=</span> <span class="n">dcm_pitch</span>
+<span class="linenos"> 6</span>     <span class="k">yield from</span> <span class="n">mv</span><span class="p">(</span><span class="n">quadem</span><span class="o">.</span><span class="n">averaging_time</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>     <span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">doc</span><span class="p">:</span> <span class="p">(</span><span class="n">doc</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">motor</span><span class="o">.</span><span class="n">name</span><span class="p">],</span> <span class="n">doc</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;I0&#39;</span><span class="p">])</span>
+<span class="linenos"> 9</span>     <span class="n">plot</span> <span class="o">=</span> <span class="n">DerivedPlot</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="n">motor</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;I0&#39;</span><span class="p">,</span>
+<span class="linenos">10</span>                        <span class="n">title</span><span class="o">=</span><span class="s1">&#39;I0 signal vs. DCM 2nd crystal pitch&#39;</span><span class="p">)</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span>     <span class="nd">@subs_decorator</span><span class="p">(</span><span class="n">plot</span><span class="p">)</span>
+<span class="linenos">13</span>     <span class="k">def</span> <span class="nf">scan_dcmpitch</span><span class="p">():</span>
+<span class="linenos">14</span>        <span class="k">yield from</span> <span class="n">rel_scan</span><span class="p">(</span><span class="n">dets</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">)</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span>     <span class="k">yield from</span> <span class="n">scan_dcmpitch</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Lines 8 to 10 set up the live plot in the manner implemented at BMM.
+<a class="reference external" href="https://github.com/NSLS-II-BMM/profile_collection/blob/master/startup/BMM/derivedplot.py">DerivedPlot</a>
+is a fairly clunky tool used throughout BMM’s profile.  It allows live
+plots to show the ratios of signals, which is very commonly needed at
+an XAFS beamline.  In this case, we are using it in a more trivial
+way, just showing the signal on the <span class="guilabel">I0</span> detector.  This
+could also be done with the <a class="reference external" href="https://blueskyproject.io/bluesky/callbacks.html#liveplot-for-scalar-data">standard Bluesky LivePlot callback</a>.</p>
+<p>This plotting apparatus is then attached to a local function as a
+function decorator at line 12.  The local function is called at
+line 16.</p>
+</section>
+<section id="moving-to-the-correct-position">
+<h2>Moving to the correct position<a class="headerlink" href="#moving-to-the-correct-position" title="Permalink to this heading">#</a></h2>
+<p>The plot is not actually the point of this plan.  The point is to find
+the optimal pitch position and move the pitch to that position.</p>
+<p>To do this, we look for the peak of the rocking curve.  That is, we
+want to move to the <code class="docutils literal notranslate"><span class="pre">dcm_pitch</span></code> position for which the
+<span class="guilabel">I0</span> signal was maximized.  At that position, the lattice
+planes of the two crystals are closest to parallel.</p>
+<p>We add</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+</pre></div>
+</div>
+<p>to the top of the file defining this plan.  This imports the <a class="reference external" href="https://pandas.pydata.org/">pandas</a> data analysis library, which is super
+handy.  In particular we want the <code class="docutils literal notranslate"><span class="pre">pandas.Series.idxmax</span></code> function,
+which will give us the index of the point in the <span class="guilabel">I0</span> signal
+array containing the maximum value. <a class="footnote-reference brackets" href="#id3" id="id1">1</a>  We then select the value of motor
+position array at that index.  That is the peak position.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>        <span class="n">uid</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">rel_scan</span><span class="p">(</span><span class="n">dets</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">)</span>
+<span class="linenos">2</span>        <span class="n">t</span>  <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">table</span><span class="p">()</span>
+<span class="linenos">3</span>        <span class="n">signal</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="s1">&#39;I0&#39;</span><span class="p">]</span>
+<span class="linenos">4</span>        <span class="n">position</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+<span class="linenos">5</span>        <span class="n">top</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">motor</span><span class="o">.</span><span class="n">name</span><span class="p">][</span><span class="n">position</span><span class="p">]</span>
+<span class="linenos">6</span>        <span class="k">yield from</span> <span class="n">mv</span><span class="p">(</span><span class="n">motor</span><span class="p">,</span> <span class="n">top</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In the last line, we move to the peak position, thus accomplishing the
+goal of the plan.</p>
+</section>
+<section id="pre-and-post-scan-configuration-changes">
+<h2>Pre- and post-scan configuration changes<a class="headerlink" href="#pre-and-post-scan-configuration-changes" title="Permalink to this heading">#</a></h2>
+<p>As the second crystal pitch is scanned over its rocking curve, the
+height of the beam at the sample position changes with the pitch
+position. Even though the angular change during the scan is tiny, the
+sample is about 20 meters away from monochromator.</p>
+<p>As a result, it is helpful to open the vertical hutch slits to give
+the beam room to move around.  Once the optical pitch position is
+found, we can close the slits back down to the operating size.</p>
+<p>The other thing we want to consider is the integration time of the
+detector.  This scan uses a quite short integration time, so it is
+good practice to restore a resting-state value for that paraeter when
+the scan is done.</p>
+<p>These are a common enough sorts of chores that Bluesky provides a tool
+exactly for this purpose.  It is called <a class="reference external" href="https://nsls-ii.github.io/bluesky/generated/bluesky.preprocessors.finalize_wrapper.html">finalize_wrapper</a>.
+It works by defining two local functions within the
+<code class="docutils literal notranslate"><span class="pre">rocking_curve()</span></code> plan, like so:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> <span class="kn">from</span> <span class="nn">bluesky.preprocessors</span> <span class="kn">import</span> <span class="n">finalize_wrapper</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span> <span class="k">def</span> <span class="nf">rocking_curve</span><span class="p">(</span><span class="n">start</span><span class="o">=-</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">nsteps</span><span class="o">=</span><span class="mi">101</span><span class="s1">&#39;):</span>
+<span class="linenos"> 4</span>     <span class="k">def</span> <span class="nf">main_plan</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">):</span>
+<span class="linenos"> 5</span>        <span class="c1">## (text of main plan)</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span>     <span class="k">def</span> <span class="nf">cleanup_plan</span><span class="p">():</span>
+<span class="linenos"> 8</span>        <span class="c1">## (text of cleanup plan)</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span>     <span class="k">yield from</span> <span class="n">finalize_wrapper</span><span class="p">(</span><span class="n">main_plan</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">),</span> <span class="n">cleanup_plan</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>The two local plans are called in sequence by <code class="docutils literal notranslate"><span class="pre">finalize_wrapper</span></code>.</p>
+<p>Most of what we’ve discussed above will go into the text of the
+<code class="docutils literal notranslate"><span class="pre">main_plan()</span></code>.  The <code class="docutils literal notranslate"><span class="pre">cleanup_plan()</span></code> will reclose the slits and
+reset the integration time to its default value.</p>
+<p>To flesh this out a bit:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> <span class="kn">from</span> <span class="nn">bluesky.plan_stubs</span> <span class="kn">import</span> <span class="n">mv</span>
+<span class="linenos"> 2</span> <span class="kn">from</span> <span class="nn">bluesky.preprocessors</span> <span class="kn">import</span> <span class="n">finalize_wrapper</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span> <span class="k">def</span> <span class="nf">rocking_curve</span><span class="p">(</span><span class="n">start</span><span class="o">=-</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">nsteps</span><span class="o">=</span><span class="mi">101</span><span class="s1">&#39;):</span>
+<span class="linenos"> 5</span>     <span class="k">def</span> <span class="nf">main_plan</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">):</span>
+<span class="linenos"> 6</span>         <span class="c1">## (text of main plan)</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span>     <span class="k">def</span> <span class="nf">cleanup_plan</span><span class="p">():</span>
+<span class="linenos"> 9</span>         <span class="k">yield from</span> <span class="n">mv</span><span class="p">(</span><span class="n">motor</span><span class="p">,</span> <span class="n">slit_height</span><span class="p">)</span>
+<span class="linenos">10</span>         <span class="k">yield from</span> <span class="n">mv</span><span class="p">(</span><span class="n">quadem</span><span class="o">.</span><span class="n">averaging_time</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span>     <span class="n">motor</span> <span class="o">=</span> <span class="n">dcm_pitch</span>
+<span class="linenos">13</span>     <span class="n">slit_height</span> <span class="o">=</span> <span class="n">slits3</span><span class="o">.</span><span class="n">vsize</span><span class="o">.</span><span class="n">readback</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="linenos">14</span>     <span class="k">yield from</span> <span class="n">mv</span><span class="p">(</span><span class="n">motor</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="linenos">15</span>     <span class="k">yield from</span> <span class="n">mv</span><span class="p">(</span><span class="n">quadem</span><span class="o">.</span><span class="n">averaging_time</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="linenos">16</span>     <span class="k">yield from</span> <span class="n">finalize_wrapper</span><span class="p">(</span><span class="n">main_plan</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">),</span> <span class="n">cleanup_plan</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>With this plan definition, the preparatory tasks – adjusting slit
+height, adjusting integration time – are done right before calling
+<code class="docutils literal notranslate"><span class="pre">finalize_wrapper()</span></code>.  <code class="docutils literal notranslate"><span class="pre">finalize_wrapper()</span></code> is then called.
+<code class="docutils literal notranslate"><span class="pre">main_plan</span></code> does the bulk of the work and <code class="docutils literal notranslate"><span class="pre">cleanup_plan</span></code> restores
+the beamline to its resting state.</p>
+<p>There are two benefits to using <code class="docutils literal notranslate"><span class="pre">finalize_wrapper</span></code> to perform the
+cleanup chores, rather than simply putting those chores at the end of
+the main plan.  First, this pattern allows cleanup to be arbitrarily
+complicated.  Second, and most importantly, the cleanup plan will get
+run even if the main plan fails in some way.  This is a better (though
+still not perfect) guarantee that the beamline will be left in a
+sensible resting state.</p>
+</section>
+<section id="choosing-the-peak-position">
+<h2>Choosing the peak position<a class="headerlink" href="#choosing-the-peak-position" title="Permalink to this heading">#</a></h2>
+<p>The version of this plan shown in the next section takes one more
+argument beyond the start and stop positions and the number of steps.
+The <code class="docutils literal notranslate"><span class="pre">choice</span></code> parameter is a string which tells the plan <cite>how</cite> to
+find the peak position.  The default option is <code class="docutils literal notranslate"><span class="pre">peak</span></code>, as discussed
+above.  The other two options are to compute the center of mass of the
+peak using a function imported from <a class="reference external" href="https://scipy.org/">SciPy</a> or
+to perform a fit using <a class="reference external" href="https://lmfit.github.io/lmfit-py/">lmfit</a>.
+<a class="footnote-reference brackets" href="#id4" id="id2">2</a> The <code class="docutils literal notranslate"><span class="pre">choice</span></code> parameter would then be set to <code class="docutils literal notranslate"><span class="pre">com</span></code> or <code class="docutils literal notranslate"><span class="pre">fit</span></code>,
+respectively.</p>
+<p>Passing the <code class="docutils literal notranslate"><span class="pre">choice</span></code> parameter all the way into the <code class="docutils literal notranslate"><span class="pre">main_plan()</span></code>
+allows us to do this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>        <span class="n">uid</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">rel_scan</span><span class="p">(</span><span class="n">dets</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">)</span>
+<span class="linenos"> 2</span>        <span class="n">t</span>  <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">table</span><span class="p">()</span>
+<span class="linenos"> 3</span>        <span class="n">signal</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">sgnl</span><span class="p">]</span>
+<span class="linenos"> 4</span>        <span class="k">if</span> <span class="n">choice</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;com&#39;</span><span class="p">:</span>
+<span class="linenos"> 5</span>            <span class="n">position</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">center_of_mass</span><span class="p">(</span><span class="n">signal</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="linenos"> 6</span>            <span class="n">top</span>      <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">motor</span><span class="o">.</span><span class="n">name</span><span class="p">][</span><span class="n">position</span><span class="p">]</span>
+<span class="linenos"> 7</span>        <span class="k">elif</span> <span class="n">choice</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;fit&#39;</span><span class="p">:</span>
+<span class="linenos"> 8</span>            <span class="n">pitch</span>    <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="s1">&#39;dcm_pitch&#39;</span><span class="p">]</span>
+<span class="linenos"> 9</span>            <span class="n">mod</span>      <span class="o">=</span> <span class="n">SkewedGaussianModel</span><span class="p">()</span>
+<span class="linenos">10</span>            <span class="n">pars</span>     <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">guess</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">pitch</span><span class="p">)</span>
+<span class="linenos">11</span>            <span class="n">out</span>      <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">pars</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">pitch</span><span class="p">)</span>
+<span class="linenos">12</span>            <span class="nb">print</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">fit_report</span><span class="p">(</span><span class="n">min_correl</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="linenos">13</span>            <span class="n">out</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="linenos">14</span>            <span class="n">top</span>      <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;center&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+<span class="linenos">15</span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos">16</span>            <span class="n">position</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+<span class="linenos">17</span>            <span class="n">top</span>      <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">motor</span><span class="o">.</span><span class="n">name</span><span class="p">][</span><span class="n">position</span><span class="p">]</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span>        <span class="k">yield from</span> <span class="n">mv</span><span class="p">(</span><span class="n">motor</span><span class="p">,</span> <span class="n">top</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The peak position is computed by the selected algorithm, then the
+motor is moved to that position.</p>
+</section>
+<section id="on-screen-feedback">
+<h2>On-screen feedback<a class="headerlink" href="#on-screen-feedback" title="Permalink to this heading">#</a></h2>
+<p>Finally, it is helpful to provide some feedback to the bsui user as
+this plan runs.  This is shown in lines 34, 61, and 63 in the full
+code listing in the next section.  They are shown as simple
+<code class="docutils literal notranslate"><span class="pre">print()</span></code> statements, however those informative text strings can be
+used in more interesting ways.  For example, that text could be
+<a class="reference internal" href="../slack/text.html#slack-text"><span class="std std-ref">posted to Slack</span></a> or used in some other interesting
+way.</p>
+</section>
+<section id="plan-composition">
+<h2>Plan composition<a class="headerlink" href="#plan-composition" title="Permalink to this heading">#</a></h2>
+<p>There is one final point to be made.  One of the great strengths of
+Bluesky is its concept of plan composition.  In the example shown
+here, everything is done using more primitive Bluesky plans,
+specifically <code class="docutils literal notranslate"><span class="pre">rel_scan()</span></code> and <code class="docutils literal notranslate"><span class="pre">mv()</span></code>, as well as
+<code class="docutils literal notranslate"><span class="pre">finalize_wrpper()</span></code>.</p>
+<p>This concept of creating plans out of plans is very powerful because
+it can be arbitrarily deep.  <cite>Other</cite> plans can be composed of the
+<code class="docutils literal notranslate"><span class="pre">rocking_curve()</span></code> plan.  Plans composed of plans composed of plans!</p>
+<p>In fact, this is done at BMM.  The <code class="docutils literal notranslate"><span class="pre">rocking_curve()</span></code> plan is rarely
+run on it’s own.  It is occasionally useful to remeasure the rocking
+curve by itself, but it is much more commonly done as part of a plan
+which changes the configuration of the entire beamline according to
+the element to be measured.</p>
+<p>At BMM, this looks like this when run in bsui:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">change_edge</span><span class="p">(</span><span class="s1">&#39;Fe&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>or, if the focusing mirror is to be used,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">RE</span><span class="p">(</span><span class="n">change_edge</span><span class="p">(</span><span class="s1">&#39;Zr&#39;</span><span class="p">,</span> <span class="n">focus</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The algorithm for changing edges is a multi-step process which
+includes the rocking curve measurement, but also movement of up to 14
+motors, configuration of the fluorescence detector, and an
+optimization scan of the position of the hutch slit assembly.</p>
+<p>Plans composed of plans composed of plans.</p>
+</section>
+<section id="footnotes">
+<h2>Footnotes<a class="headerlink" href="#footnotes" title="Permalink to this heading">#</a></h2>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>This could also be done with <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.argmax.html">numpy.argmax</a>
+That said, if you are reading this document and do not know
+about <a class="reference external" href="https://pandas.pydata.org/">pandas</a>, you should.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Fitting could also be done using <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html">SciPy’s optimizer</a>.
+That said, if you are reading this document and do not know
+about <a class="reference external" href="https://lmfit.github.io/lmfit-py/">lmfit</a>, you should.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="problem.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">A common measurement problem</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="codelisting.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Code Listing</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-live-plot">Adding a live plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-to-the-correct-position">Moving to the correct position</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-and-post-scan-configuration-changes">Pre- and post-scan configuration changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#choosing-the-peak-position">Choosing the peak position</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#on-screen-feedback">On-screen feedback</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plan-composition">Plan composition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#footnotes">Footnotes</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bruce Ravel, and others
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2021, Bruce Ravel, and others.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

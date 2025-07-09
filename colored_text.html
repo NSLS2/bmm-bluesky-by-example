@@ -1,0 +1,615 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Colored text in bsui &#8212; Bluesky by Example 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'colored_text';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Code Listing" href="redis/codelisting.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Bluesky by Example 0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="bespokescan.html">Bespoke beamline specific plans</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="bespokescan/problem.html">A common measurement problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bespokescan/solution.html">Making a bespoke measurement plan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bespokescan/codelisting.html">Code Listing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="linkam.html">An Ophyd device for the Linkam T96</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="linkam/problem.html">Linkam Stage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkam/ophyd.html">Ophyd Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkam/features.html">Additional features of the Linkam class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="linkam/codelisting.html">Code Listing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="slack.html">Communicating from the beamline with Slack</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="slack/text.html">Posting a text message to Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="slack/image.html">Posting an image to Slack</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="redis.html">Using Redis to store beamline state persistently</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="redis/whatis.html">What is Redis?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="redis/state.html">Store and retrieve state information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="redis/codelisting.html">Code Listing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Colored text in bsui</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NSLS-II-BMM/bluesky-by-example" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NSLS-II-BMM/bluesky-by-example/issues/new?title=Issue%20on%20page%20%2Fcolored_text.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/colored_text.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Colored text in bsui</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colorful-terminal-text">Colorful terminal text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boxed-blocks-of-text">Boxed blocks of text</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="colored-text-in-bsui">
+<span id="colored-text"></span><h1>Colored text in bsui<a class="headerlink" href="#colored-text-in-bsui" title="Permalink to this heading">#</a></h1>
+<div class="admonition-section-topic admonition">
+<p class="admonition-title">Section Topic</p>
+<p>Many of the example code blocks in the sections showing code
+developed at BMM show functions and tools used at BMM which are not
+standard parts of IPython or Bluesky.  This section shows code
+listings for those things.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Lesson</dt>
+<dd class="field-odd"><p>Develop convenient tools for applying color and style to
+text written to the bsui terminal.</p>
+</dd>
+<dt class="field-even">Beamline</dt>
+<dd class="field-even"><p><a class="reference external" href="https://wiki-nsls2.bnl.gov/beamline6BM/index.php?Main_Page">BMM</a></p>
+</dd>
+<dt class="field-odd">Link to source code</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://github.com/NSLS-II-BMM/profile_collection/blob/master/startup/BMM/functions.py#L34">functions.py</a></p>
+</dd>
+<dt class="field-even">Section author</dt>
+<dd class="field-even"><p>Bruce Ravel (<a class="reference external" href="mailto:bravel&#37;&#52;&#48;bnl&#46;gov">bravel<span>&#64;</span>bnl<span>&#46;</span>gov</a>)</p>
+</dd>
+</dl>
+</div>
+<section id="colorful-terminal-text">
+<h2>Colorful terminal text<a class="headerlink" href="#colorful-terminal-text" title="Permalink to this heading">#</a></h2>
+<p>BMM users do a lot at the command line.  It is helpful to have tools
+for emphasizing text printed to the screen in various ways.  Happily,
+IPython provides good tools for applying ASCII colors and accents to
+terminal text.  The following is some syntactic sugar making those
+tools easier to use.</p>
+<p>There are several examples of the colored text shortcuts in
+<a class="reference internal" href="linkam/codelisting.html#linkam-codelisting"><span class="std std-ref">the status method shown in the Linkam code listing</span></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> <span class="kn">from</span> <span class="nn">IPython.utils.coloransi</span> <span class="kn">import</span> <span class="n">TermColors</span> <span class="k">as</span> <span class="n">color</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span> <span class="k">def</span> <span class="nf">colored</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">tint</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">[]):</span>
+<span class="linenos"> 4</span><span class="w">     </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="linenos"> 5</span><span class="sd">     A simple wrapper around IPython&#39;s interface to TermColors</span>
+<span class="linenos"> 6</span><span class="sd">     &#39;&#39;&#39;</span>
+<span class="linenos"> 7</span>     <span class="n">tint</span> <span class="o">=</span> <span class="n">tint</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="linenos"> 8</span>     <span class="k">if</span> <span class="s1">&#39;dark&#39;</span> <span class="ow">in</span> <span class="n">tint</span><span class="p">:</span>
+<span class="linenos"> 9</span>         <span class="n">tint</span> <span class="o">=</span> <span class="s1">&#39;Dark&#39;</span> <span class="o">+</span> <span class="n">tint</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+<span class="linenos">10</span>     <span class="k">elif</span> <span class="s1">&#39;light&#39;</span> <span class="ow">in</span> <span class="n">tint</span><span class="p">:</span>
+<span class="linenos">11</span>         <span class="n">tint</span> <span class="o">=</span> <span class="s1">&#39;Light&#39;</span> <span class="o">+</span> <span class="n">tint</span><span class="p">[</span><span class="mi">5</span><span class="p">:]</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+<span class="linenos">12</span>     <span class="k">elif</span> <span class="s1">&#39;blink&#39;</span> <span class="ow">in</span> <span class="n">tint</span><span class="p">:</span>
+<span class="linenos">13</span>         <span class="n">tint</span> <span class="o">=</span> <span class="s1">&#39;Blink&#39;</span> <span class="o">+</span> <span class="n">tint</span><span class="p">[</span><span class="mi">5</span><span class="p">:]</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+<span class="linenos">14</span>     <span class="k">elif</span> <span class="s1">&#39;no&#39;</span> <span class="ow">in</span> <span class="n">tint</span><span class="p">:</span>
+<span class="linenos">15</span>         <span class="n">tint</span> <span class="o">=</span> <span class="s1">&#39;Normal&#39;</span>
+<span class="linenos">16</span>     <span class="k">else</span><span class="p">:</span>
+<span class="linenos">17</span>         <span class="n">tint</span> <span class="o">=</span> <span class="n">tint</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+<span class="linenos">18</span>     <span class="k">return</span> <span class="s1">&#39;</span><span class="si">{0}{1}{2}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">tint</span><span class="p">),</span> <span class="n">text</span><span class="p">,</span> <span class="n">color</span><span class="o">.</span><span class="n">Normal</span><span class="p">)</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span> <span class="k">def</span> <span class="nf">error_msg</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="linenos">21</span><span class="w">     </span><span class="sd">&#39;&#39;&#39;Red text&#39;&#39;&#39;</span>
+<span class="linenos">22</span>     <span class="k">return</span> <span class="n">colored</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;lightred&#39;</span><span class="p">)</span>
+<span class="linenos">23</span> <span class="k">def</span> <span class="nf">warning_msg</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="linenos">24</span><span class="w">     </span><span class="sd">&#39;&#39;&#39;Yellow text&#39;&#39;&#39;</span>
+<span class="linenos">25</span>     <span class="k">return</span> <span class="n">colored</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+<span class="linenos">26</span> <span class="k">def</span> <span class="nf">go_msg</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="linenos">27</span><span class="w">     </span><span class="sd">&#39;&#39;&#39;Green text&#39;&#39;&#39;</span>
+<span class="linenos">28</span>     <span class="k">return</span> <span class="n">colored</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;lightgreen&#39;</span><span class="p">)</span>
+<span class="linenos">29</span> <span class="k">def</span> <span class="nf">url_msg</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="linenos">30</span><span class="w">     </span><span class="sd">&#39;&#39;&#39;Text without decoration, reserved for URL decoration...&#39;&#39;&#39;</span>
+<span class="linenos">31</span>     <span class="k">return</span> <span class="n">colored</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;normal&#39;</span><span class="p">)</span>
+<span class="linenos">32</span> <span class="k">def</span> <span class="nf">bold_msg</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="linenos">33</span><span class="w">     </span><span class="sd">&#39;&#39;&#39;Bright white text&#39;&#39;&#39;</span>
+<span class="linenos">34</span>     <span class="k">return</span> <span class="n">colored</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;white&#39;</span><span class="p">)</span>
+<span class="linenos">35</span> <span class="k">def</span> <span class="nf">verbosebold_msg</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="linenos">36</span><span class="w">     </span><span class="sd">&#39;&#39;&#39;Bright cyan text&#39;&#39;&#39;</span>
+<span class="linenos">37</span>     <span class="k">return</span> <span class="n">colored</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;lightcyan&#39;</span><span class="p">)</span>
+<span class="linenos">38</span> <span class="k">def</span> <span class="nf">list_msg</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="linenos">39</span><span class="w">     </span><span class="sd">&#39;&#39;&#39;Cyan text&#39;&#39;&#39;</span>
+<span class="linenos">40</span>     <span class="k">return</span> <span class="n">colored</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;cyan&#39;</span><span class="p">)</span>
+<span class="linenos">41</span> <span class="k">def</span> <span class="nf">disconnected_msg</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="linenos">42</span><span class="w">     </span><span class="sd">&#39;&#39;&#39;Purple text&#39;&#39;&#39;</span>
+<span class="linenos">43</span>     <span class="k">return</span> <span class="n">colored</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;purple&#39;</span><span class="p">)</span>
+<span class="linenos">44</span> <span class="k">def</span> <span class="nf">info_msg</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="linenos">45</span><span class="w">     </span><span class="sd">&#39;&#39;&#39;Brown text&#39;&#39;&#39;</span>
+<span class="linenos">46</span>     <span class="k">return</span> <span class="n">colored</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;brown&#39;</span><span class="p">)</span>
+<span class="linenos">47</span> <span class="k">def</span> <span class="nf">whisper</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="linenos">48</span><span class="w">     </span><span class="sd">&#39;&#39;&#39;Light gray text&#39;&#39;&#39;</span>
+<span class="linenos">49</span>     <span class="k">return</span> <span class="n">colored</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;darkgray&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This, then, associates different colors and accents on the text to
+meaningful words.  “Error” means bright red text.  “Go” means bright,
+green text, and so on.</p>
+<p>Examples:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">go_msg</span><span class="p">(</span><span class="s1">&#39;Scan finished successfully!&#39;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">error_msg</span><span class="p">(</span><span class="s1">&#39;Unable to do the thing...&#39;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">whisper</span><span class="p">(</span><span class="s1">&#39;don</span><span class="se">\&#39;</span><span class="s1">t forget to open the shutter&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id1">
+<span id="fig-colored-text-example"></span><a class="reference external image-reference" href="_static/colored_text_example.png"><img alt="_images/colored_text_example.png" src="_images/colored_text_example.png" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Examples of colored text</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="boxed-blocks-of-text">
+<h2>Boxed blocks of text<a class="headerlink" href="#boxed-blocks-of-text" title="Permalink to this heading">#</a></h2>
+<p>Additional emphasis can be placed on a block of text by putting it in
+a box with a title line at the top.  This uses the <code class="docutils literal notranslate"><span class="pre">colored()</span></code>
+function shown above to color the characters making up the walls of
+the box.</p>
+<p>The <a class="reference internal" href="linkam/features.html#fig-linkam-statusbox"><span class="std std-ref">Linkam status display</span></a> is an example of this
+in use, with some of the interior text being displayed using the
+<code class="docutils literal notranslate"><span class="pre">colored()</span></code> function described above.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">ansiwrap</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="k">def</span> <span class="nf">boxedtext</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">tint</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">75</span><span class="p">):</span>
+<span class="linenos"> 4</span><span class="w">   </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="linenos"> 5</span><span class="sd">   Put text in a lovely unicode block element box.  The top</span>
+<span class="linenos"> 6</span><span class="sd">   of the box will contain a title.  The box elements will</span>
+<span class="linenos"> 7</span><span class="sd">   be colored.</span>
+<span class="linenos"> 8</span><span class="sd">   &#39;&#39;&#39;</span>
+<span class="linenos"> 9</span>   <span class="n">remainder</span> <span class="o">=</span> <span class="n">width</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="linenos">10</span>   <span class="n">ul</span>        <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;</span><span class="se">\u2554</span><span class="s1">&#39;</span> <span class="c1"># u&#39;\u250C&#39;</span>
+<span class="linenos">11</span>   <span class="n">ur</span>        <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;</span><span class="se">\u2557</span><span class="s1">&#39;</span> <span class="c1"># u&#39;\u2510&#39;</span>
+<span class="linenos">12</span>   <span class="n">ll</span>        <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;</span><span class="se">\u255A</span><span class="s1">&#39;</span> <span class="c1"># u&#39;\u2514&#39;</span>
+<span class="linenos">13</span>   <span class="n">lr</span>        <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;</span><span class="se">\u255D</span><span class="s1">&#39;</span> <span class="c1"># u&#39;\u2518&#39;</span>
+<span class="linenos">14</span>   <span class="n">bar</span>       <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;</span><span class="se">\u2550</span><span class="s1">&#39;</span> <span class="c1"># u&#39;\u2500&#39;</span>
+<span class="linenos">15</span>   <span class="n">strut</span>     <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;</span><span class="se">\u2551</span><span class="s1">&#39;</span> <span class="c1"># u&#39;\u2502&#39;</span>
+<span class="linenos">16</span>   <span class="n">template</span>  <span class="o">=</span> <span class="s1">&#39;%-&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">width</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;s&#39;</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span>   <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="linenos">19</span>   <span class="nb">print</span><span class="p">(</span><span class="n">colored</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">ul</span><span class="p">,</span> <span class="n">bar</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">bar</span><span class="o">*</span><span class="n">remainder</span><span class="p">,</span> <span class="n">ur</span><span class="p">]),</span> <span class="n">tint</span><span class="p">))</span>
+<span class="linenos">20</span>   <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">):</span>
+<span class="linenos">21</span>       <span class="n">lne</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+<span class="linenos">22</span>       <span class="n">add</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">*</span><span class="p">(</span><span class="n">width</span><span class="o">-</span><span class="n">ansiwrap</span><span class="o">.</span><span class="n">ansilen</span><span class="p">(</span><span class="n">lne</span><span class="p">))</span>
+<span class="linenos">23</span>       <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">colored</span><span class="p">(</span><span class="n">strut</span><span class="p">,</span> <span class="n">tint</span><span class="p">),</span> <span class="n">lne</span><span class="p">,</span> <span class="n">add</span><span class="p">,</span> <span class="n">colored</span><span class="p">(</span><span class="n">strut</span><span class="p">,</span> <span class="n">tint</span><span class="p">)]))</span>
+<span class="linenos">24</span>   <span class="nb">print</span><span class="p">(</span><span class="n">colored</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">ll</span><span class="p">,</span> <span class="n">bar</span><span class="o">*</span><span class="p">(</span><span class="n">width</span><span class="o">+</span><span class="mi">3</span><span class="p">),</span> <span class="n">lr</span><span class="p">]),</span> <span class="n">tint</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;Double, double toil and trouble;</span>
+<span class="s1">Fire burn and caldron bubble.</span>
+<span class="s1">Fillet of a fenny snake,</span>
+<span class="s1">In the caldron boil and bake;</span>
+<span class="s1">Eye of newt and toe of frog,</span>
+<span class="s1">Wool of bat and tongue of dog,</span>
+<span class="s1">Adder&#39;s fork and blind-worm&#39;s sting,</span>
+<span class="s1">Lizard&#39;s leg and howlet&#39;s wing,</span>
+<span class="s1">For a charm of powerful trouble,</span>
+<span class="s1">Like a hell-broth boil and bubble.</span>
+<span class="s1">&#39;&#39;&#39;</span>
+<span class="n">boxedtext</span><span class="p">(</span><span class="s1">&#39;Song of the Witches&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="s1">&#39;brown&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-center" id="id2">
+<span id="fig-colored-text-boxedtext"></span><a class="reference external image-reference" href="_static/boxedtext_example.png"><img alt="_images/boxedtext_example.png" src="_images/boxedtext_example.png" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Example of boxed text with a brown border</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="redis/codelisting.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Code Listing</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colorful-terminal-text">Colorful terminal text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boxed-blocks-of-text">Boxed blocks of text</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bruce Ravel, and others
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2021, Bruce Ravel, and others.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

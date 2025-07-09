@@ -1,0 +1,526 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Code Listing &#8212; Bluesky by Example 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'bespokescan/codelisting';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="An Ophyd device for the Linkam T96" href="../linkam.html" />
+    <link rel="prev" title="Making a bespoke measurement plan" href="solution.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Bluesky by Example 0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../bespokescan.html">Bespoke beamline specific plans</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="problem.html">A common measurement problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="solution.html">Making a bespoke measurement plan</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Code Listing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linkam.html">An Ophyd device for the Linkam T96</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linkam/problem.html">Linkam Stage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linkam/ophyd.html">Ophyd Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linkam/features.html">Additional features of the Linkam class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linkam/codelisting.html">Code Listing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../slack.html">Communicating from the beamline with Slack</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../slack/text.html">Posting a text message to Slack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../slack/image.html">Posting an image to Slack</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../redis.html">Using Redis to store beamline state persistently</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../redis/whatis.html">What is Redis?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../redis/state.html">Store and retrieve state information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../redis/codelisting.html">Code Listing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../colored_text.html">Colored text in bsui</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/NSLS-II-BMM/bluesky-by-example" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/NSLS-II-BMM/bluesky-by-example/issues/new?title=Issue%20on%20page%20%2Fbespokescan/codelisting.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/bespokescan/codelisting.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Code Listing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="code-listing">
+<span id="bespokescan-codelisting"></span><h1>Code Listing<a class="headerlink" href="#code-listing" title="Permalink to this heading">#</a></h1>
+<p>Here is the full listing of the rocking curve scan code.</p>
+<p>An up-to-date version <a class="reference external" href="https://github.com/NSLS-II-BMM/profile_collection/blob/master/startup/BMM/linescan.py">can be found here</a>
+at BMM’s GitHub site.  This code listing is not identical to what is
+found in the BMM repository.  The version in use at the beamline has a
+few options which fall outside the scope of this tutorial.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">whisper()</span></code> function at line 55 is one of the convenience
+functions discussed in <a class="reference internal" href="../colored_text.html#colored-text"><span class="std std-ref">Colored text in bsui</span></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span> <span class="kn">from</span> <span class="nn">bluesky.plan_stubs</span> <span class="kn">import</span> <span class="n">mv</span>
+<span class="linenos"> 2</span> <span class="kn">from</span> <span class="nn">bluesky.plans</span> <span class="kn">import</span> <span class="n">rel_scan</span>
+<span class="linenos"> 3</span> <span class="kn">from</span> <span class="nn">bluesky.preprocessors</span> <span class="kn">import</span> <span class="n">finalize_wrapper</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span> <span class="kn">import</span> <span class="nn">numpy</span><span class="o">,</span> <span class="nn">pandas</span>
+<span class="linenos"> 6</span> <span class="kn">from</span> <span class="nn">lmfit.models</span> <span class="kn">import</span> <span class="n">SkewedGaussianModel</span>
+<span class="linenos"> 7</span> <span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">center_of_mass</span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span> <span class="k">def</span> <span class="nf">rocking_curve</span><span class="p">(</span><span class="n">start</span><span class="o">=-</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">nsteps</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span> <span class="n">choice</span><span class="o">=</span><span class="s1">&#39;peak&#39;</span><span class="p">):</span>
+<span class="linenos">10</span><span class="w">     </span><span class="sd">&#39;&#39;&#39;Perform a relative scan of the DCM 2nd crystal pitch around</span>
+<span class="linenos">11</span><span class="sd">     the current position to find the peak of the crystal rocking</span>
+<span class="linenos">12</span><span class="sd">     curve.  Begin by opening the hutch slits to 3 mm. At the end,</span>
+<span class="linenos">13</span><span class="sd">     move to the position of maximum intensity on I0, then return</span>
+<span class="linenos">14</span><span class="sd">     to the hutch slits to their original height.</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="sd">     Parameters</span>
+<span class="linenos">17</span><span class="sd">     ----------</span>
+<span class="linenos">18</span><span class="sd">     start : (float)</span>
+<span class="linenos">19</span><span class="sd">         starting position relative to current [-0.1]</span>
+<span class="linenos">20</span><span class="sd">     end : (float)</span>
+<span class="linenos">21</span><span class="sd">         ending position relative to current [0.1]</span>
+<span class="linenos">22</span><span class="sd">     nsteps : (int)</span>
+<span class="linenos">23</span><span class="sd">         number of steps [101]</span>
+<span class="linenos">24</span><span class="sd">     choice : (string)</span>
+<span class="linenos">25</span><span class="sd">         &#39;peak&#39;, fit&#39; or &#39;com&#39; (center of mass) [&#39;peak&#39;]</span>
+<span class="linenos">26</span>
+<span class="linenos">27</span><span class="sd">     If choice is fit, the fit is performed using the</span>
+<span class="linenos">28</span><span class="sd">     SkewedGaussianModel from lmfit, which works pretty well for</span>
+<span class="linenos">29</span><span class="sd">     this measurement at BMM.  The line shape is a bit skewed due</span>
+<span class="linenos">30</span><span class="sd">     to the convolution with the slightly misaligned entrance</span>
+<span class="linenos">31</span><span class="sd">     slits.</span>
+<span class="linenos">32</span><span class="sd">     &#39;&#39;&#39;</span>
+<span class="linenos">33</span>     <span class="k">def</span> <span class="nf">main_plan</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">,</span> <span class="n">choice</span><span class="p">):</span>
+<span class="linenos">34</span>         <span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">doc</span><span class="p">:</span> <span class="p">(</span><span class="n">doc</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">motor</span><span class="o">.</span><span class="n">name</span><span class="p">],</span> <span class="n">doc</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;I0&#39;</span><span class="p">])</span>
+<span class="linenos">35</span>         <span class="n">dets</span> <span class="o">=</span> <span class="p">[</span><span class="n">quadem1</span><span class="p">,]</span>
+<span class="linenos">36</span>         <span class="n">sgnl</span> <span class="o">=</span> <span class="s1">&#39;I0&#39;</span>
+<span class="linenos">37</span>         <span class="n">titl</span> <span class="o">=</span> <span class="s1">&#39;I0 signal vs. DCM 2nd crystal pitch&#39;</span>
+<span class="linenos">38</span>         <span class="n">plot</span> <span class="o">=</span> <span class="n">DerivedPlot</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="n">motor</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="n">sgnl</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">titl</span><span class="p">)</span>
+<span class="linenos">39</span>
+<span class="linenos">40</span>         <span class="nd">@subs_decorator</span><span class="p">(</span><span class="n">plot</span><span class="p">)</span>
+<span class="linenos">41</span>         <span class="k">def</span> <span class="nf">scan_dcmpitch</span><span class="p">(</span><span class="n">sgnl</span><span class="p">):</span>
+<span class="linenos">42</span>             <span class="n">line1</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">motor</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">sgnl</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">start</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">stop</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">nsteps</span><span class="si">}</span><span class="s1"> -- starting at </span><span class="si">{</span><span class="n">motor</span><span class="o">.</span><span class="n">user_readback</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
+<span class="linenos">43</span>
+<span class="linenos">44</span>             <span class="n">uid</span> <span class="o">=</span> <span class="k">yield from</span> <span class="n">rel_scan</span><span class="p">(</span><span class="n">dets</span><span class="p">,</span> <span class="n">motor</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">)</span>
+<span class="linenos">45</span>             <span class="n">t</span>  <span class="o">=</span> <span class="n">db</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">table</span><span class="p">()</span>
+<span class="linenos">46</span>             <span class="n">signal</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">sgnl</span><span class="p">]</span>
+<span class="linenos">47</span>             <span class="k">if</span> <span class="n">choice</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;com&#39;</span><span class="p">:</span>
+<span class="linenos">48</span>                 <span class="n">position</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">center_of_mass</span><span class="p">(</span><span class="n">signal</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="linenos">49</span>                 <span class="n">top</span>      <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">motor</span><span class="o">.</span><span class="n">name</span><span class="p">][</span><span class="n">position</span><span class="p">]</span>
+<span class="linenos">50</span>             <span class="k">elif</span> <span class="n">choice</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;fit&#39;</span><span class="p">:</span>
+<span class="linenos">51</span>                 <span class="n">pitch</span>    <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="s1">&#39;dcm_pitch&#39;</span><span class="p">]</span>
+<span class="linenos">52</span>                 <span class="n">mod</span>      <span class="o">=</span> <span class="n">SkewedGaussianModel</span><span class="p">()</span>
+<span class="linenos">53</span>                 <span class="n">pars</span>     <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">guess</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">pitch</span><span class="p">)</span>
+<span class="linenos">54</span>                 <span class="n">out</span>      <span class="o">=</span> <span class="n">mod</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">pars</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">pitch</span><span class="p">)</span>
+<span class="linenos">55</span>                 <span class="nb">print</span><span class="p">(</span><span class="n">whisper</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">fit_report</span><span class="p">(</span><span class="n">min_correl</span><span class="o">=</span><span class="mi">0</span><span class="p">)))</span>
+<span class="linenos">56</span>                 <span class="n">out</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="linenos">57</span>                 <span class="n">top</span>      <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">params</span><span class="p">[</span><span class="s1">&#39;center&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+<span class="linenos">58</span>             <span class="k">else</span><span class="p">:</span>
+<span class="linenos">59</span>                 <span class="n">position</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(</span><span class="n">signal</span><span class="p">)</span>
+<span class="linenos">60</span>                 <span class="n">top</span>      <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="n">motor</span><span class="o">.</span><span class="n">name</span><span class="p">][</span><span class="n">position</span><span class="p">]</span>
+<span class="linenos">61</span>
+<span class="linenos">62</span>             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;rocking curve scan: </span><span class="si">{</span><span class="n">line1</span><span class="si">}</span><span class="se">\t</span><span class="s1">uid = </span><span class="si">{</span><span class="n">uid</span><span class="si">}</span><span class="s1">, scan_id = </span><span class="si">{</span><span class="n">user_ns</span><span class="p">[</span><span class="s1">&#39;db&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">start</span><span class="p">[</span><span class="s1">&#39;scan_id&#39;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">63</span>             <span class="k">yield from</span> <span class="n">mv</span><span class="p">(</span><span class="n">motor</span><span class="p">,</span> <span class="n">top</span><span class="p">)</span>
+<span class="linenos">64</span>             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;found optimal picth position at </span><span class="si">{</span><span class="n">motor</span><span class="o">.</span><span class="n">user_readback</span><span class="o">.</span><span class="n">get</span><span class="p">()</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="linenos">65</span>         <span class="k">yield from</span> <span class="n">scan_dcmpitch</span><span class="p">(</span><span class="n">sgnl</span><span class="p">)</span>
+<span class="linenos">66</span>
+<span class="linenos">67</span>     <span class="k">def</span> <span class="nf">cleanup_plan</span><span class="p">():</span>
+<span class="linenos">68</span>         <span class="k">yield from</span> <span class="n">mv</span><span class="p">(</span><span class="n">slits3</span><span class="o">.</span><span class="n">vsize</span><span class="p">,</span> <span class="n">slit_height</span><span class="p">)</span>
+<span class="linenos">69</span>         <span class="k">yield from</span> <span class="n">mv</span><span class="p">(</span><span class="n">_locked_dwell_time</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="linenos">70</span>
+<span class="linenos">71</span>     <span class="n">motor</span> <span class="o">=</span> <span class="n">dcm_pitch</span>
+<span class="linenos">72</span>     <span class="k">yield from</span> <span class="n">mv</span><span class="p">(</span><span class="n">_locked_dwell_time</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="linenos">73</span>     <span class="k">yield from</span> <span class="n">mv</span><span class="p">(</span><span class="n">slits3</span><span class="o">.</span><span class="n">vsize</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="linenos">74</span>     <span class="n">slit_height</span> <span class="o">=</span> <span class="n">slits3</span><span class="o">.</span><span class="n">vsize</span><span class="o">.</span><span class="n">readback</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="linenos">75</span>     <span class="k">yield from</span> <span class="n">finalize_wrapper</span><span class="p">(</span><span class="n">main_plan</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">,</span> <span class="n">choice</span><span class="p">),</span> <span class="n">cleanup_plan</span><span class="p">())</span>
+</pre></div>
+</div>
+</section>
+
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="solution.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Making a bespoke measurement plan</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../linkam.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">An Ophyd device for the Linkam T96</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bruce Ravel, and others
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2021, Bruce Ravel, and others.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
